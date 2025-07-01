@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-=======
 
-
->>>>>>> e1f373b (Meine Änderungen aus detached HEAD)
 .page-content {
     padding: 40px;
     display: flex;
@@ -10,47 +6,7 @@
     align-items: center;
     text-align: center;
 }
-<<<<<<< HEAD
 
-.mdl-textfield {
-    width: 90%;
-}
-
-.startSeitenContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-
-
-
-.containerLeerWortschatz p {
-    margin-top: 20px;
-}
-
-.vocabularyList {
-    list-style: none;
-    padding: 5px;
-    margin: 30px auto;
-    max-width: 600px;
-}
-
-.vocabularyList li  {
-    background-color: #3f51b5; 
-    color: #ffffff;
-    padding: 12px 20px;
-    margin: 10px 0;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    align-items: center;
-
-}
-
-.vocabularyList li:hover {
-    background-color: #6571b4;
-=======
 
 .mdl-textfield {
     width: 90%;
@@ -89,5 +45,4 @@
 .vocabularyList li:hover {
     background-color: #6571b4;
 
->>>>>>> e1f373b (Meine Änderungen aus detached HEAD)
 }
