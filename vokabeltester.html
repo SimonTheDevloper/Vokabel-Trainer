@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,21 +44,21 @@
                 <form id="kategorieAuswahl" class="FrageKasten">
                     <div>
                         <label for="kategorie">Wähle die Kategorie aus:</label>
-                        <input type="text" id="kategorie" name="kategorie" required autocomplete="off">
+                        <select name="test" id="testSelection">
+                            <option></option>
+                        </select>
                     </div>
                     <button type="submit">Vokabeltest starten</button>
                 </form>
                 <div id="vokabelAbfrageBereich" class="FrageKasten"> <!-- danch machen style="display: none;" -->
->>>>>>> e1f373b (Meine Änderungen aus detached HEAD)                    <h1 id="frageAnzeige"></h1>
+                    <h1 id="frageAnzeige"></h1>
                     <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung">
                     <button id="antwortButton">Antworten</button>
-                    <button id="weiterButton" >Weiter</button>
+                    <button id="weiterButton">Weiter</button>
                     <div id="feedbackAnzeige"></div>
-                    <div id="testAbschluss" ></div>
+                    <div id="testAbschluss"></div>
                 </div>
-                <select name="test" id="testSelection">
-                    <option>Choose a number</option>
-                </select>
+
                 <h2 id="text"></h2>
                 <div id="empty-message" style="display: none; text-align: center; margin-top: 50px">
                     <h2>😕 Wörterbuch ist leer</h2>

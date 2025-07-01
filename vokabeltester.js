@@ -1,16 +1,3 @@
-
-console.log("test")
-let select = document.getElementById("testSelection"); 
-let options = ["1", "2", "3", "4", "5"]; 
-
-// Optional: Clear all existing options first:
-select.innerHTML = "";
-// Populate list with options:
-for(var index = 0; index < options.length; index++) {
-    var opt = options[index];
-    select.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
-}
-
 let vocabList = [];
 let VokabelKategorie = [];
 let i = -1;
@@ -32,6 +19,26 @@ if (storedVocabList) {
     console.log("Keine Vokabelliste im localStorage gefunden. Starte mit einer leeren Liste.");
 }
 
+// 1. Wir holen alle Kategorien aus dem Array (darf auch doppelt sein)
+const alleKategorienMitWiederholungen = vocabList.map(eintrag => eintrag.category);
+
+// 2. Wir entfernen doppelte Einträge mit einem Set
+const alleKategorien = [...new Set(alleKategorienMitWiederholungen)];
+
+// Jetzt haben wir ein Array mit jeder Kategorie genau einmal
+console.log(alleKategorien);
+
+console.log("test");
+let select = document.getElementById("testSelection");
+
+// Optional: Clear all existing options first:
+select.innerHTML = "";
+// Populate list with options:
+for (let index = 0; index < alleKategorien.length; index++) {
+    let opt = alleKategorien[index];
+    select.innerHTML += `<option value="${opt}">${opt}</option>`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     vokabelAbfrageBereich = document.getElementById('vokabelAbfrageBereich');
     frageAnzeige = document.getElementById('frageAnzeige');
@@ -42,27 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
     weiterButton = document.getElementById('weiterButton');
     kakategorieAuswahl = document.getElementById("kategorieAuswahl");
     vokabelAbfrageBereich = document.getElementById("vokabelAbfrageBereich");
-    kategorieEingabeFeld = document.getElementById('kategorie')
+    kategorieEingabeFeld = document.getElementById('kategorie');
 
+    select.addEventListener("change", () => {
+        var ausgewählteKategorie = alleKategorien[select.selectedIndex];
+        console.log("Ausgewählte Kategorie," + ausgewählteKategorie);
+    });
 
     kakategorieAuswahl.addEventListener('submit', function (event) {
         event.preventDefault();
 
         kategorieAuswahl.style.display = 'none';
-
         vokabelAbfrageBereich.style.display = 'block';
-        
-        const ausgewählteKategorie = kategorieEingabeFeld.value.trim();
+
+        let ausgewählteKategorie = alleKategorien[select.selectedIndex];
 
         if (ausgewählteKategorie) {
             VokabelKategorie = vocabList.filter(entry => entry.category === ausgewählteKategorie);
-
+            console.log(VokabelKategorie);
             if (VokabelKategorie.length > 0) {
                 shuffle(VokabelKategorie);
                 console.log(VokabelKategorie);
-                zeigeNächsteFrage()
+                zeigeNächsteFrage();
                 testAbschlussAnzeige.textContent = "";
-
             } else {
                 alert(`Keine Vokabeln für die Kategorie "${ausgewählteKategorie}" gefunden.`);
             }
@@ -70,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Bitte gib eine Kategorie ein, um den Test zu starten.");
         }
     });
+
     antwortButton.addEventListener('click', überprüfeAntwort);
     eingabeFeld.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
@@ -79,13 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
     weiterButton.addEventListener('click', zeigeNächsteFrage);
 });
 
-
 function zeigeNächsteFrage() {
     i++;
     feedbackAnzeige.textContent = "";
     eingabeFeld.value = "";
     if (i < VokabelKategorie.length) {
-        WordNachÜbersetzung = true;
+        let WordNachÜbersetzung = true;
         if (WordNachÜbersetzung) {
             abgefragteEigenschaft = "word";
             LösungEigenschaft = "translation";
@@ -94,7 +103,7 @@ function zeigeNächsteFrage() {
             LösungEigenschaft = "word";
         }
 
-        frageText = "Was ist die Übersetzung von " + VokabelKategorie[i][abgefragteEigenschaft] + " ?";
+        let frageText = "Was ist die Übersetzung von " + VokabelKategorie[i][abgefragteEigenschaft] + " ?";
         frageAnzeige.textContent = frageText;
 
     } else {
@@ -106,30 +115,24 @@ function zeigeNächsteFrage() {
         vokabelAbfrageBereich.style.display = 'none';
         i = -1;
         VokabelKategorie = [];
-        
     }
 }
+
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     const richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
 
     if (benutzerAntwort === richtigeAntwort) {
-        feedbackAnzeige.textContent = "Ja ist Richtig!";
-
+        feedbackAnzeige.textContent = "Ja, ist richtig!";
     } else {
-        feedbackAnzeige.textContent = "Nein ist Falsch! Das Richtige ist: " + richtigeAntwort;
+        feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
     }
-
 }
-/*function geheZurNaechstenFrage() {
-    feedbackAnzeige.textContent = ""; // Feedback zurücksetzen
-    zeigeNächsteFrage(); // Zeige die nächste Frage
-}*/
+
 // Funktion zum Mischen eines Arrays (Fisher-Yates-Algorithmus)
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const r = Math.floor(Math.random() * (i + 1));
         [array[i], array[r]] = [array[r], array[i]];
     }
-
 }
