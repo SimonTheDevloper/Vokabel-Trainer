@@ -64,21 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let ausgewählteKategorie = alleKategorien[select.selectedIndex];
 
-        if (ausgewählteKategorie) {
+
             VokabelKategorie = vocabList.filter(entry => entry.category === ausgewählteKategorie);
             console.log(VokabelKategorie);
-            if (VokabelKategorie.length > 0) {
-                shuffle(VokabelKategorie);
-                console.log(VokabelKategorie);
-                zeigeNächsteFrage();
-                testAbschlussAnzeige.textContent = "";
-            } else {
-                alert(`Keine Vokabeln für die Kategorie "${ausgewählteKategorie}" gefunden.`);
-            }
-        } else {
-            alert("Bitte gib eine Kategorie ein, um den Test zu starten.");
+            shuffle(VokabelKategorie);
+            console.log(VokabelKategorie);
+            zeigeNächsteFrage();
+            testAbschlussAnzeige.textContent = "";
         }
-    });
+    );
 
     antwortButton.addEventListener('click', überprüfeAntwort);
     eingabeFeld.addEventListener('keypress', function (event) {
