@@ -43,10 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     vokabelAbfrageBereich = document.getElementById('vokabelAbfrageBereich');
     frageAnzeige = document.getElementById('frageAnzeige');
     eingabeFeld = document.getElementById('eingabeFeld');
-    antwortButton = document.getElementById('antwortButton');
+    antwortButton = document.getElementById('checkButton');
     feedbackAnzeige = document.getElementById('feedbackAnzeige');
     testAbschlussAnzeige = document.getElementById('testAbschluss');
-    weiterButton = document.getElementById('weiterButton');
+    weiterButton = document.getElementById('nextButton');
     kakategorieAuswahl = document.getElementById("kategorieAuswahl");
     vokabelAbfrageBereich = document.getElementById("vokabelAbfrageBereich");
     kategorieEingabeFeld = document.getElementById('kategorie');
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         kategorieAuswahl.style.display = 'none';
-        vokabelAbfrageBereich.style.display = 'block';
+        vokabelAbfrageBereich.style.display = 'flex'; // hier war der Fehler statt block -> Flex dann funktoniert auch Button
 
         let ausgewählteKategorie = alleKategorien[select.selectedIndex];
 
@@ -115,9 +115,13 @@ function zeigeNächsteFrage() {
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     const richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
-
+    eingabeFeld.value = ""
+    
+    
     if (benutzerAntwort === richtigeAntwort) {
         feedbackAnzeige.textContent = "Ja, ist richtig!";
+        weiterButton.style.display = 'flex';
+        antwortButton.style.display = 'none';
     } else {
         feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
     }

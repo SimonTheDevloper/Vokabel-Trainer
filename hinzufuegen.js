@@ -4,7 +4,7 @@ const vocabList = []
 document.addEventListener('DOMContentLoaded', () => {
 
     const addVocabForm = document.getElementById('addVocabForm');
-    addVocabForm.addEventListener('submit', function(event) {
+    addVocabForm.addEventListener('submit', function (event) {
 
         event.preventDefault();
         const deutschesWort = document.getElementById('deutschesWort').value.trim();
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const kategorie = document.getElementById('kategorie').value.trim();
 
         // Neues Vokabelobjekt erstellen
-            const neueVokabel = {
+        const neueVokabel = {
             word: deutschesWort,
             translation: englischesWort,
             category: kategorie,

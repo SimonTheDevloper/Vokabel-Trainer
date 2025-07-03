@@ -94,13 +94,13 @@ body {
 }
 
 .FrageKasten button:hover {
-    background-color: #3399ff; /* Etwas dunkler bei Hover */
-    transform: translateY(-3px); /* Stärkerer Hoch-Effekt */
-    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.35); /* Stärkerer Schatten bei Hover */
+    background-color: #3399ff; 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.35); 
 }
 
 .FrageKasten button:active {
-    background-color: #268aff; /* Noch dunkler beim Klicken */
+    background-color: #268aff; 
     transform: translateY(0);
     box-shadow: 0 3px 8px rgba(38, 138, 255, 0.2);
 }
