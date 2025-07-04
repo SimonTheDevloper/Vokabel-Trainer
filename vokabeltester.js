@@ -45,11 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     eingabeFeld = document.getElementById('eingabeFeld');
     antwortButton = document.getElementById('checkButton');
     feedbackAnzeige = document.getElementById('feedbackAnzeige');
-    testAbschlussAnzeige = document.getElementById('testAbschluss');
+    testAbschlussBereich = document.getElementById('testZuendeBereich');
     weiterButton = document.getElementById('nextButton');
     kakategorieAuswahl = document.getElementById("kategorieAuswahl");
     vokabelAbfrageBereich = document.getElementById("vokabelAbfrageBereich");
     kategorieEingabeFeld = document.getElementById('kategorie');
+    zurückZurKategorieAuswahlBtn = document.getElementById("zurückZuKategorie");
 
     select.addEventListener("change", () => {
         var ausgewählteKategorie = alleKategorien[select.selectedIndex];
@@ -70,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             shuffle(VokabelKategorie);
             console.log(VokabelKategorie);
             zeigeNächsteFrage();
-            testAbschlussAnzeige.textContent = "";
         }
     );
 
@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     weiterButton.addEventListener('click', zeigeNächsteFrage);
+    zurückZurKategorieAuswahlBtn.addEventListener('click', zurückzuKategorieAuswahl)
 });
 
 function zeigeNächsteFrage() {
@@ -96,16 +97,16 @@ function zeigeNächsteFrage() {
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
-
+        eingabeFeld.focus(); // 
         let frageText = "Was ist die Übersetzung von " + VokabelKategorie[i][abgefragteEigenschaft] + " ?";
         frageAnzeige.textContent = frageText;
 
+
     } else {
-        testAbschlussAnzeige.textContent = "Der Test ist beendet!";
         console.log("Deine Abfrage ist Fertig");
         alert("Deine Abfrage ist zu Ende");
-
-        kategorieAuswahl.style.display = 'flex';
+        testAbschlussBereich.style.display = 'flex'
+        kategorieAuswahl.style.display = 'none';
         vokabelAbfrageBereich.style.display = 'none';
         i = -1;
         VokabelKategorie = [];
@@ -125,6 +126,12 @@ function überprüfeAntwort() {
     } else {
         feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
     }
+}
+
+function zurückzuKategorieAuswahl() {
+        kategorieAuswahl.style.display = 'flex';
+        vokabelAbfrageBereich.style.display = 'none';
+        testAbschlussBereich.style.display = 'none';
 }
 
 // Funktion zum Mischen eines Arrays (Fisher-Yates-Algorithmus)

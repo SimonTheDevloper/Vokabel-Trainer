@@ -50,14 +50,20 @@
                     </div>
                     <button type="submit">Vokabeltest starten</button>
                 </form>
-                <div id="vokabelAbfrageBereich" class="FrageKasten"> <!-- danch machen style="display: none;" -->
+                <div id="vokabelAbfrageBereich" class="FrageKasten">
+                    <!-- danch machen style="display: none;" -->
                     <h1 id="frageAnzeige"></h1>
-                    <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung">
+                    <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"/>
                     <button id="checkButton">Antworten</button>
-                    <button id="nextButton" style="display: none;">Weiter</button>
+                    <button id="nextButton" style="display: none">Weiter</button>
                     <div id="feedbackAnzeige"></div>
-                    <div id="testAbschluss"></div>
                 </div>
+                <div id="testZuendeBereich" class="FrageKasten" style="display: none;">
+                    <div id="testZuEnde">Der Test ist zuende</div>
+                    <p>Du hast alle Fragen beantwortet</p>
+                    <button id="zurückZuKategorie">Zurück</button>
+                </div>
+
 
                 <h2 id="text"></h2>
                 <div id="empty-message" style="display: none; text-align: center; margin-top: 50px">
