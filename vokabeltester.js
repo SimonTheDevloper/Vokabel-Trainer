@@ -29,7 +29,7 @@ const alleKategorien = [...new Set(alleKategorienMitWiederholungen)];
 console.log(alleKategorien);
 
 console.log("test");
-let select = document.getElementById("testSelection");
+let select = document.getElementById("KategorieSelection");
 
 // Optional: Clear all existing options first:
 select.innerHTML = "";

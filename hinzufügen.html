@@ -42,15 +42,20 @@
                 <form id="addVocabForm" class="glassmorphic-form">
                     <div>
                         <label for="deutschesWort">Deutsches Wort:</label>
-                        <input type="text" id="deutschesWort" name="deutschesWort" required autocomplete="off">
+                        <input type="text" id="deutschesWort" name="deutschesWort" autocomplete="off">
                     </div>
                     <div>
                         <label for="englischesWort">Englisches Wort:</label>
-                        <input type="text" id="englischesWort" name="englischesWort" required autocomplete="off">
+                        <input type="text" id="englischesWort" name="englischesWort" autocomplete="off">
                     </div>
                     <div>
                         <label for="kategorie">Kategorie:</label>
-                        <input type="text" id="kategorie" name="kategorie" required autocomplete="on">
+
+                        <select name="KategorieSelection" id="KategorieSelection">
+                            <option></option>
+                        </select>
+                        <button id="kategorieHinzufügen">Kategorie hinzufügen</button>
+                        
                     </div>
                     <button id="submitButton" type="submit">Vokabel hinzufügen</button>
                 </form>
