@@ -126,6 +126,7 @@ function überprüfeAntwort() {
         weiterButton.style.display = 'flex';
         antwortButton.style.display = 'none';
     } else {
+        feedbackAnzeige.style.color = "#e74c3c";
         feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
         weiterButton.style.display = 'none';
         antwortButton.style.display = 'flex';

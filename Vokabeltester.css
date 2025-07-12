@@ -120,7 +120,7 @@ body {
 
 #feedbackAnzeige, #testAbschluss {
     margin-top: 25px;
-    font-size: 1.3em; /* Etwas größer */
+    font-size: 1.4em; /* Etwas größer */
     color: #2ecc71; /* Ein frischeres, helleres Grün für positives Feedback */
     font-weight: 600;
 }
