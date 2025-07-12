@@ -88,6 +88,8 @@ function zeigeNächsteFrage() {
     i++;
     feedbackAnzeige.textContent = "";
     eingabeFeld.value = "";
+    weiterButton.style.display = "none"
+    antwortButton.style.display = "flex"
     if (i < VokabelKategorie.length) {
         let WordNachÜbersetzung = true;
         if (WordNachÜbersetzung) {
@@ -97,7 +99,7 @@ function zeigeNächsteFrage() {
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
-        eingabeFeld.focus(); // 
+        eingabeFeld.focus();  
         let frageText = "Was ist die Übersetzung von " + VokabelKategorie[i][abgefragteEigenschaft] + " ?";
         frageAnzeige.textContent = frageText;
 
@@ -125,6 +127,8 @@ function überprüfeAntwort() {
         antwortButton.style.display = 'none';
     } else {
         feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
+        weiterButton.style.display = 'none';
+        antwortButton.style.display = 'flex';
     }
 }
 
