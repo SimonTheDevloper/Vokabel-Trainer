@@ -122,10 +122,12 @@ function überprüfeAntwort() {
     
     
     if (benutzerAntwort === richtigeAntwort) {
+        eingabeFeld.style.cursor = 'not-allowed'
         feedbackAnzeige.style.color = "#2ecc71";
         feedbackAnzeige.textContent = "Ja, ist richtig!";
         weiterButton.style.display = 'flex';
         antwortButton.style.display = 'none';
+        
         
     } else {
         feedbackAnzeige.style.color = "#e74c3c";
