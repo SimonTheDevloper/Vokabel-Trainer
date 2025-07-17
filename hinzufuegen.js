@@ -1,5 +1,5 @@
 let vocabList;
-vocabList = JSON.parse(localStorage.getItem('vokabelListe'));
+vocabList = JSON.parse(localStorage.getItem('vokabelListe')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
 

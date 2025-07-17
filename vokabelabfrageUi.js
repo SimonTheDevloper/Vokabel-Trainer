@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     kategorieAuswahlForm.addEventListener('submit', function (event) {
         event.preventDefault();
-
+        const alleKategorien = kategorienAbrufen();
         kategorieAuswahlForm.style.display = 'none';
         vokabelAbfrageBereich.style.display = 'flex'; // hier war der Fehler statt block -> Flex dann funktoniert auch Button
 
@@ -82,7 +82,7 @@ function erstelleDropDown() {
         kategorieselect.innerHTML = "";
         // Populate list with options:
         for (let index = 0; index < alleKategorien.length; index++) {
-            let opt = [index];
+            let opt = alleKategorien[index];
             kategorieselect.innerHTML += `<option value="${opt}">${opt}</option>`;
         }
     }
