@@ -10,24 +10,22 @@ body {
     box-sizing: border-box;
 }
 
-/* Gemeinsamer Stil für beide Kästen */
 .FrageKasten {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 18px; /* Etwas stärkere Abrundung */
+    border-radius: 18px; 
     width: 100%;
-    max-width: 650px; /* Leicht breiter für mehr Luft */
+    max-width: 650px; 
     height: 500px;
-    padding: 35px; /* Noch mehr Innenabstand */
-    background-color: #ffffff; /* Reines Weiß */
+    padding: 35px; 
+    background-color: #ffffff;
     box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15); /* Hellerer, weicherer Schatten */
     text-align: center;
     transition: all 0.4s ease-in-out;
 }
 
-/* Kasten für die Kategorie-Auswahl */
 #kategorieAuswahl {
     display: flex;
     flex-direction: column;
@@ -35,7 +33,6 @@ body {
     align-items: center;
 }
 
-/* Stil für den Vokabelabfrage-Bereich (verbessert) */
 #vokabelAbfrageBereich {
     display: none;
     background-color: #ffffff;
@@ -52,35 +49,34 @@ body {
 }
 
 .FrageKasten label {
-    font-size: 1.7em; /* Größer für mehr Präsenz */
-    color: #0056b3; /* Mittlerer Blauton */
+    font-size: 1.7em; 
+    color: #0056b3; 
     font-weight: 600;
-    margin-bottom: 25px; /* Mehr Abstand */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Sehr dezenter Textschatten */
+    margin-bottom: 25px; 
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05); 
 }
 
 .FrageKasten input[type="text"] {
-    padding: 16px; /* Mehr Polsterung */
-    margin: 18px 0; /* Mehr vertikaler Abstand */
+    padding: 16px;
+    margin: 18px 0;
     width: 90%;
-    max-width: 450px; /* Leicht breiter */
+    max-width: 450px; 
     font-size: 1.4em;
-    border: 1px solid #cceeff; /* Sehr helles Blau für den Rand */
-    border-radius: 10px; /* Mehr Abrundung */
+    border: 1px solid #cceeff;
+    border-radius: 10px; 
     outline: none;
-    background-color: #fdfefe; /* Minimaler Off-White Hintergrund */
+    background-color: #fdfefe; 
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); /* Dezenter innerer Schatten */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); 
 }
-
 .FrageKasten input[type="text"]:focus {
-    border-color: #66b3ff; /* Helles, lebhaftes Blau beim Fokus */
-    box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3); /* Sanfter, breiterer Fokus-Schatten */
+    border-color: #66b3ff; 
+    box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3); 
 }
 
 .FrageKasten button {
-    padding: 15px 35px; /* Größer und besser klickbar */
-    background-color: #4da6ff; /* Ein helleres, freundlicheres Blau */
+    padding: 15px 35px; 
+    background-color: #4da6ff; 
     color: white;
     border: none;
     border-radius: 10px;
@@ -88,9 +84,9 @@ body {
     cursor: pointer;
     margin: 12px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25); /* Weicherer, blauerer Schatten */
+    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25); 
     font-weight: 500;
-    letter-spacing: 0.5px; /* Leicht erhöhter Buchstabenabstand */
+    letter-spacing: 0.5px; 
 }
 
 .FrageKasten button:hover {
@@ -105,14 +101,47 @@ body {
     box-shadow: 0 3px 8px rgba(38, 138, 255, 0.2);
 }
 
-/* Zusätzliche Styles für den Vokabelabfrage-Bereich */
 #frageAnzeige {
-    font-size: 2em; /* Noch größer für die Frage */
+    font-size: 2em; 
     margin-bottom: 30px;
     color: #0056b3;
-    font-weight: 700; /* Stärkerer Font-Weight für die Frage */
+    font-weight: 700; 
 }
 
+.FrageKasten-Input {
+    display: none;
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 35px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 650px;
+    height: 100px;
+    box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+}
+
+.FrageKasten-Input input[type="text"] {
+    padding: 16px;
+    margin: 18px 0;
+    width: 90%;
+    max-width: 450px; 
+    font-size: 1.4em;
+    border: 1px solid #cceeff;
+    border-radius: 10px; 
+    outline: none;
+    background-color: #fdfefe; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); 
+}
+
+.FrageKasten-Input [type="text"]:focus {
+    border-color: #66b3ff; 
+    box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3);
+}
 #eingabeFeld:focus {
     border-color: #66b3ff;
     box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3);
@@ -120,14 +149,13 @@ body {
 
 #feedbackAnzeige, #testAbschluss {
     margin-top: 25px;
-    font-size: 1.4em; /* Etwas größer */
-    color: #2ecc71; /* Ein frischeres, helleres Grün für positives Feedback */
+    font-size: 1.4em; 
+    color: #2ecc71; 
     font-weight: 600;
 }
 
-/* Optional: Fehlerfeedback */
 .error-feedback {
-    color: #e74c3c; /* Ein klares Rot für Fehler */
+    color: #e74c3c; 
     font-weight: 600;
 }
 #testZuEnde {

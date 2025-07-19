@@ -15,6 +15,7 @@ let feedbackAnzeige;
 let weiterButton;
 let kakategorieAuswahl;
 let testAbschlussBereich;
+let vokabelAbfrageInput;
 let kategorieEingabeFeld;
 let zurückZurKategorieAuswahlBtn;
 let kategorieselect;
@@ -31,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     testAbschlussBereich = document.getElementById('testZuendeBereich');
     weiterButton = document.getElementById('nextButton');
     kategorieAuswahlForm = document.getElementById("kategorieAuswahl");
-    vokabelAbfrageBereich = document.getElementById("vokabelAbfrageBereich");
+    vokabelAbfrageBereich = document.getElementById("vokabelAbfrage");
     kategorieEingabeFeld = document.getElementById('kategorie');
     zurückZurKategorieAuswahlBtn = document.getElementById("zurückZuKategorie");
+    vokabelAbfrageInput = document.getElementById('vokabelAbfrageInput')
 
     erstelleDropDown()
     
@@ -47,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const alleKategorien = kategorienAbrufen();
         kategorieAuswahlForm.style.display = 'none';
         vokabelAbfrageBereich.style.display = 'flex'; // hier war der Fehler statt block -> Flex dann funktoniert auch Button
+        vokabelAbfrageInput.style.display = 'flex';
 
         let ausgewählteKategorie = alleKategorien[kategorieselect.selectedIndex];
 
@@ -68,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     weiterButton.addEventListener('click', zeigeNächsteFrage);
     zurückZurKategorieAuswahlBtn.addEventListener('click', zurückzuKategorieAuswahl)
     vokabelAbfrageBereich.style.display = 'none';
+    vokabelAbfrageInput.style.display = 'none'
     testAbschlussBereich.style.display = 'none';
     kategorieAuswahlForm.style.display = 'flex';
 });
@@ -113,6 +117,7 @@ function zeigeNächsteFrage() {
         testAbschlussBereich.style.display = 'flex'
         kategorieAuswahl.style.display = 'none';
         vokabelAbfrageBereich.style.display = 'none';
+        vokabelAbfrageInput.style.display = 'none';
         i = -1;
         VokabelKategorie = [];
     }
