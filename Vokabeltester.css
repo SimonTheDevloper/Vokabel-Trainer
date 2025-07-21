@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f7ff; /* Noch helleres, fast weißes Hellblau */
+    background-color: #f0f7ff;
+    /* Noch helleres, fast weißes Hellblau */
     margin: 0;
     display: flex;
     justify-content: center;
@@ -10,18 +11,64 @@ body {
     box-sizing: border-box;
 }
 
+.KategorieKasten {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 650px;
+    height: 500px;
+    padding: 35px;
+    background-color: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
+    /* Hellerer, weicherer Schatten */
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+}
+
+.KategorieKasten label {
+    font-size: 1.7em;
+    color: #0056b3;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.KategorieKasten button {
+    padding: 15px 35px;
+    background-color: #4da6ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin: 12px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.KategorieKasten button:hover {
+    background-color: #3399ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.35);
+}
+
 .FrageKasten {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 18px; 
+    border-radius: 18px;
     width: 100%;
-    max-width: 650px; 
-    height: 500px;
-    padding: 35px; 
+    max-width: 650px;
+    height: 300px;
+    padding: 35px;
     background-color: #ffffff;
-    box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15); /* Hellerer, weicherer Schatten */
+    box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
     text-align: center;
     transition: all 0.4s ease-in-out;
 }
@@ -49,34 +96,35 @@ body {
 }
 
 .FrageKasten label {
-    font-size: 1.7em; 
-    color: #0056b3; 
+    font-size: 1.7em;
+    color: #0056b3;
     font-weight: 600;
-    margin-bottom: 25px; 
-    text-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .FrageKasten input[type="text"] {
     padding: 16px;
     margin: 18px 0;
     width: 90%;
-    max-width: 450px; 
+    max-width: 450px;
     font-size: 1.4em;
     border: 1px solid #cceeff;
-    border-radius: 10px; 
+    border-radius: 10px;
     outline: none;
-    background-color: #fdfefe; 
+    background-color: #fdfefe;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+
 .FrageKasten input[type="text"]:focus {
-    border-color: #66b3ff; 
-    box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3); 
+    border-color: #66b3ff;
+    box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3);
 }
 
 .FrageKasten button {
-    padding: 15px 35px; 
-    background-color: #4da6ff; 
+    padding: 15px 35px;
+    background-color: #4da6ff;
     color: white;
     border: none;
     border-radius: 10px;
@@ -84,28 +132,28 @@ body {
     cursor: pointer;
     margin: 12px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25); 
+    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25);
     font-weight: 500;
-    letter-spacing: 0.5px; 
+    letter-spacing: 0.5px;
 }
 
 .FrageKasten button:hover {
-    background-color: #3399ff; 
-    transform: translateY(-3px); 
-    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.35); 
+    background-color: #3399ff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.35);
 }
 
 .FrageKasten button:active {
-    background-color: #268aff; 
+    background-color: #268aff;
     transform: translateY(0);
     box-shadow: 0 3px 8px rgba(38, 138, 255, 0.2);
 }
 
 #frageAnzeige {
-    font-size: 2em; 
+    font-size: 2em;
     margin-bottom: 30px;
     color: #0056b3;
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 .FrageKasten-Input {
@@ -128,36 +176,55 @@ body {
     padding: 16px;
     margin: 18px 0;
     width: 90%;
-    max-width: 450px; 
+    max-width: 450px;
     font-size: 1.4em;
     border: 1px solid #cceeff;
-    border-radius: 10px; 
+    border-radius: 10px;
     outline: none;
-    background-color: #fdfefe; 
+    background-color: #fdfefe;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .FrageKasten-Input [type="text"]:focus {
-    border-color: #66b3ff; 
+    border-color: #66b3ff;
     box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3);
 }
+
 #eingabeFeld:focus {
     border-color: #66b3ff;
     box-shadow: 0 0 0 4px rgba(102, 179, 255, 0.3);
 }
 
-#feedbackAnzeige, #testAbschluss {
-    margin-top: 25px;
-    font-size: 1.4em; 
-    color: #2ecc71; 
+#feedbackAnzeige,
+#testAbschluss {
+    font-size: 1.7em;
+    color: #2ecc71;
     font-weight: 600;
 }
 
+.VokTester-Feedback {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 650px;
+    height: 50px;
+    padding: 35px;
+    background-color: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 100, 200, 0.15);
+    text-align: center;
+    transition: all 0.4s ease-in-out;
+}
+
 .error-feedback {
-    color: #e74c3c; 
+    color: #e74c3c;
     font-weight: 600;
 }
+
 #testZuEnde {
     font-size: 34px;
     color: #0056b3;
@@ -166,6 +233,7 @@ body {
     margin-bottom: 25px;
     text-shadow: 1px 1px 2px rgba(0, 86, 179, 0.15);
 }
+
 #testZuendeBereich p {
     margin-top: 18px;
     color: #4494e9;
@@ -173,4 +241,23 @@ body {
     font-weight: 600;
     line-height: 1.5;
     text-align: center;
+}
+
+.checkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px;
+    background-color: #4da6ff;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 15px rgba(77, 166, 255, 0.25);
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }

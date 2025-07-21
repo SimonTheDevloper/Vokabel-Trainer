@@ -20,6 +20,7 @@ let kategorieEingabeFeld;
 let zurückZurKategorieAuswahlBtn;
 let kategorieselect;
 let kategorieAuswahlForm;
+let vokabelAfrageFeedbackBereich;
 
 document.addEventListener('DOMContentLoaded', () => {
     ladeVokList()
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     kategorieEingabeFeld = document.getElementById('kategorie');
     zurückZurKategorieAuswahlBtn = document.getElementById("zurückZuKategorie");
     vokabelAbfrageInput = document.getElementById('vokabelAbfrageInput')
+    vokabelAfrageFeedbackBereich = document.getElementById('vokabelAfrageFeedback')
 
     erstelleDropDown()
     
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const alleKategorien = kategorienAbrufen();
         kategorieAuswahlForm.style.display = 'none';
-        vokabelAbfrageBereich.style.display = 'flex'; // hier war der Fehler statt block -> Flex dann funktoniert auch Button
+        vokabelAbfrageBereich.style.display = 'flex'; 
         vokabelAbfrageInput.style.display = 'flex';
 
         let ausgewählteKategorie = alleKategorien[kategorieselect.selectedIndex];
@@ -73,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vokabelAbfrageBereich.style.display = 'none';
     vokabelAbfrageInput.style.display = 'none'
     testAbschlussBereich.style.display = 'none';
+    vokabelAfrageFeedbackBereich.style.display = 'none'
     kategorieAuswahlForm.style.display = 'flex';
 });
 
@@ -127,7 +130,7 @@ function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     const richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
     eingabeFeld.value = ""
-
+    vokabelAfrageFeedbackBereich.style.display = 'flex'
 
     if (benutzerAntwort === richtigeAntwort) {
         eingabeFeld.style.cursor = 'not-allowed'

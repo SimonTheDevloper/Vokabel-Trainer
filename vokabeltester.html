@@ -41,7 +41,7 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <form id="kategorieAuswahl" class="FrageKasten">
+                <form id="kategorieAuswahl" class="KategorieKasten">
                     <div>
                         <label for="kategorie">Wähle die Kategorie aus:</label>
                         <select name="test" id="testSelection">
@@ -56,12 +56,14 @@
                 <div id="vokabelAbfrageInput" class="FrageKasten-Input">
                     <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"/>
                 </div>
-                          
-                    <button id="checkButton">Antworten</button>
-                    <button id="nextButton" style="display: none">Weiter</button>
+                <div id="vokabelAfrageFeedback" class="VokTester-Feedback">
                     <div id="feedbackAnzeige"></div>
+                </div>
+                <button id="checkButton" class="checkButton" style="display: none">Antworten</button>
+                <button id="nextButton" class="checkButton" style="display: none">Weiter</button>
                 
-                <div id="testZuendeBereich" class="FrageKasten" style="display: none;">
+                
+                <div id="testZuendeBereich" class="FrageKasten" style="display: none">
                     <div id="testZuEnde">Der Test ist zuende</div>
                     <p>Du hast alle Fragen beantwortet</p>
                     <button id="zurückZuKategorie">Zurück</button>
