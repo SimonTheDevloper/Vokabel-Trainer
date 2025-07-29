@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link href="/dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="Vokabeltester.css" />
 
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -42,66 +41,34 @@
         </div>
         <main class="mdl-layout__content">
             <div class="page-content">
-                <div class="flex min-h-screen flex-col items-center justify-center bg-blue-100 px-8">
-
-                    <div id="Vortschritt" class="Fortschritt-Bar"></div>
-                    <div class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-7 shadow-md">
-                        <form>
-                            <div class="mb-4">
-                                <label for="kategorie"
-                                    class="mb-2.5 block text-center text-2xl font-semibold text-slate-800"> Wähle die
-                                    Kategorie aus: </label>
-                                <select id="testSelection"
-                                    class="w-full rounded border border-gray-300 px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                                    <option value="">Bitte wählen...</option>
-                                    <!-- Optionen -->
-                                </select>
-                            </div>
-                            <button type="submit"
-                                class="w-full rounded bg-blue-400 px-4 py-2 font-semibold text-white transition hover:bg-blue-500">Vokabeltest
-                                starten</button>
-                        </form>
+                <form id="kategorieAuswahl" class="KategorieKasten">
+                    <div>
+                        <label for="kategorie">Wähle die Kategorie aus:</label>
+                        <select name="test" id="testSelection">
+                            <option></option>
+                        </select>
                     </div>
-
-                    <div class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-6 shadow-md">
-                        <div class="flex items-center justify-center">
-                            <label for="kategorie"
-                                class="block text-center text-2xl font-semibold text-slate-800">Aktuelle Vokabel
-                                7/26</label>
-                        </div>
-                    </div>
-
-                    <div id="vokabelAbfrage"
-                        class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 p-11 shadow-md">
-                        <div class="flex items-center justify-center">
-                            <label for="kategorie" id="frageAnzeige"
-                                class="block text-center text-4xl font-semibold text-slate-800">Hallo</label>
-                        </div>
-                    </div>
-                    <div id="vokabelAbfrageInput"
-                        class="mx-auto mt-10 flex w-full max-w-[440px] items-center justify-center rounded-lg bg-blue-300 p-2 shadow-md">
-                        <input id="eingabeFeld" type="text" placeholder="Übersetzung eingeben..." autofocus
-                            class="w-full max-w-[420px] rounded-md bg-blue-200 px-4 py-1 text-center text-lg font-semibold text-slate-800 caret-blue-600 shadow-inner placeholder:text-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-                    </div>
-                    <div id="vokabelAfrageFeedback" class="VokTester-Feedback">
-                        <div id="feedbackAnzeige"></div>
-                    </div>
-                    <div id="checkButton" class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 shadow-md">
-                        <button type="submit"
-                            class="flex w-full items-center justify-center rounded-lg bg-blue-400 px-5 py-3 font-semibold text-white transition hover:bg-blue-500">Überprüfen</button>
-                    </div>
+                    <button type="submit">Vokabeltest starten</button>
+                </form>
+                <div id="vokabelAbfrage" class="FrageKasten">
+                    <h1 id="frageAnzeige"></h1>
                 </div>
-                                    <div id="nextButton" class="mx-auto mt-10 w-full max-w-[440px] rounded-lg bg-blue-300 shadow-md">
-                        <button type="submit"
-                            class="flex w-full items-center justify-center rounded-lg bg-blue-400 px-5 py-3 font-semibold text-white transition hover:bg-blue-500">Überprüfen</button>
-                    </div>
+                <div id="vokabelAbfrageInput" class="FrageKasten-Input">
+                    <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"/>
                 </div>
-
+                <div id="vokabelAfrageFeedback" class="VokTester-Feedback">
+                    <div id="feedbackAnzeige"></div>
+                </div>
+                <button id="checkButton" class="checkButton" style="display: none">Antworten</button>
+                <button id="nextButton" class="checkButton" style="display: none">Weiter</button>
+                
+                
                 <div id="testZuendeBereich" class="FrageKasten" style="display: none">
                     <div id="testZuEnde">Der Test ist zuende</div>
                     <p>Du hast alle Fragen beantwortet</p>
                     <button id="zurückZuKategorie">Zurück</button>
                 </div>
+
 
                 <h2 id="text"></h2>
                 <div id="empty-message" style="display: none; text-align: center; margin-top: 50px">
