@@ -251,6 +251,7 @@ body {
     background-color: #4da6ff;
     color: white;
     width: 100%;
+    max-width: 720px;
     border: none;
     border-radius: 10px;
     font-size: 1.3em;
