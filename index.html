@@ -1,72 +1,176 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vokabel-Trainer</title>
+    <title>Vokabel hinzufügen</title>
+    <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="startseite.css">
     <link rel="manifest" href="/manifest.webmanifest">
+    <style>
+        /* Custom styles for the Inter font and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes gradient-flow {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background-size: 400% 400%;
+            animation: gradient-flow 6s ease-in-out infinite;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">Startseite</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="index.html">Startseite</a>
-                    <a class="mdl-navigation__link" href="vokabeltester.html">Vokabel-Test</a>
-                    <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
-                </nav>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <span class="text-xl font-bold text-white">Vokabel hinzufügen</span>
+            <nav class="hidden md:flex space-x-4">
+                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+                <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+            </nav>
+            <button class="md:hidden" id="mobile-menu-button">
+                <i class="material-icons">menu</i>
+            </button>
+        </div>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu-drawer"
+            class="md:hidden fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full transition-transform duration-300 z-40">
+            <div class="p-4 border-b border-indigo-700">
+                <span class="text-xl font-bold">Menü</span>
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Startseite</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">Startseite</a>
-                <a class="mdl-navigation__link" href="voktestmitids.html">Vokabel-Test</a>
-                <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
+            <nav class="flex flex-col p-4 space-y-2">
+                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+                <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
             </nav>
         </div>
-        <main class="mdl-layout__content">
-            <div class="startSeitenContainer">
-                <div class="header-container">
-                    <h1>MEHR <span class="gradient-word">VOKABELN</span>. WENIGER AUFWAND</h1>
-                    <p class="subtitle">
-                        Lernen Sie effektiv mit unseren <span class="highlight-accent"> Modernen</span> Methoden
+    </header>
+
+    <!-- Hauptinhalt -->
+    <main class="pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Haupt-Container für Inhalt -->
+            <div class="flex flex-col items-center w-full py-10 space-y-12">
+
+                <!-- Header-Block mit Titel und Untertitel -->
+                <section class="text-center max-w-3xl animate-fadeInUp">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900"
+                        style="letter-spacing: -0.02em;">
+                        MEHR <span
+                            class="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent animate-gradient">VOKABELN</span>.
+                        WENIGER AUFWAND.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 font-normal mt-4 leading-relaxed">
+                        Lernen Sie effektiv mit unseren <span
+                            class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold">modernen</span>
+                        Methoden.
                     </p>
-                    <div class="glassmorphicContainer">
-                        <h2>Was ist neu?</h2>
-                        <div class="updateEntry">
-                            <span class="version">Version 2.0</span>
-                            <span class="date">31. Mai 2025</span>
-                            <ul class="updateEntryUl">
-                                <ul class="updateEntryUl">
-                                    <li class="updateEntryLi">✨ Neues Startseiten-Design</li>
-                                    <li class="updateEntryLi">🎨 Überarbeitetes Vokabel-Hinzufügen</li>
-                                    <li class="updateEntryLi">📂 Kategorien beim Hinzufügen wählbar</li>
-                                    <li class="updateEntryLi">🧪 Test nach ausgewählter Kategorie</li>
-                                    <li class="updateEntryLi">🔀 Zufällige Abfrage-Reihenfolge</li>
-                                    <li class="updateEntryLi">✅ Test endet nach allen Vokabeln</li>
-                                </ul>
-                            </ul>
-                            </ul>
+                </section>
+
+                <!-- "Was ist neu?" Container - Aktualisiert für Version 3.0 mit neuem Design -->
+                <section id="features"
+                    class="py-16 bg-gradient-to-r from-indigo-50 to-blue-100 rounded-xl shadow-lg w-full max-w-4xl">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16 animate-fadeInUp">
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Was ist <span
+                                    class="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent">neu
+                                    in Version 3.0?</span></h2>
+                            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                                Unser größtes Update aller Zeiten mit komplett neuem Design und vielen neuen Funktionen.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                            <!-- Highlight 1: Komplettes UI-Redesign -->
+                            <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
+                                style="animation-delay: 0.2s;">
+                                <div class="flex items-start">
+                                    <div class="bg-indigo-100 text-indigo-800 p-3 rounded-lg mr-4">
+                                        <span class="text-2xl">🎨</span> <!-- Emoji für Pinsel-Symbol -->
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Komplettes UI-Redesign</h3>
+                                        <p class="text-gray-600 mb-4">Alle Oberflächen wurden von Grund auf neu
+                                            gestaltet mit Fokus auf Benutzerfreundlichkeit und modernem Aussehen.</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Hinzufügen</span>
+                                            <span
+                                                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Abfrage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Highlight 2: Hinzufügen, Abfrage, Statistiken -->
+                            <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
+                                style="animation-delay: 0.4s;">
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
+                                        <span class="text-2xl">🚀</span> <!-- Emoji für Raketen-Symbol -->
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Abfrage UI / UX</h3>
+                                        <p class="text-gray-600 mb-4">Die Abfragefunktion wurde mit einer
+                                            Benutzeroberfläche und einer verbesserten Benutzererfahrung komplett
+                                            überarbeitet.</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span
+                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Design</span>
+                                            <span
+                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">UI/UX</span>
+                                            <span
+                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Abfrage</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-        </main>
-    </div>
-    <script src="script.js"></script>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
+        });
+    </script>
+
 </body>
 
 </html>
