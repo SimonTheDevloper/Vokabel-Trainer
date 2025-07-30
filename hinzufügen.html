@@ -1,66 +1,81 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vokabel-Trainer</title>
+    <title>Vokabel hinzufügen</title>
+    <link href="dist/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="hinzufügen.css">
     <link rel="manifest" href="/manifest.webmanifest">
 </head>
 
-<body onload="render()">
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">Vokabel hinzufügen</span>
-                <div class="mdl-layout-spacer"></div>
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="index.html">Startseite</a>
-                    <a class="mdl-navigation__link" href="KetegorieFürVokTest.html">Vokabel-Test</a>
-                    <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
-
-                </nav>
+<body onload="render()" class="bg-blue-100 font-sans">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <span class="text-xl font-bold text-amber-400">Vokabel hinzufügen</span>
+            <nav class="hidden md:flex space-x-4">
+                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="KetegorieFürVokTest.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+                <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+            </nav>
+            <button class="md:hidden" id="mobile-menu-button">
+                <i class="material-icons">menu</i>
+            </button>
+        </div>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu-drawer"
+            class="md:hidden fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full transition-transform duration-300 z-40">
+            <div class="p-4 border-b border-indigo-700">
+                <span class="text-xl font-bold">Menü</span>
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Vokabel-hinzufügen</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="index.html">Startseite</a>
-                <a class="mdl-navigation__link" href="vokabeltester.html">Vokabel-Test</a>
-                <a class="mdl-navigation__link" href="hinzufügen.html">Hinzufügen</a>
-
+            <nav class="flex flex-col p-4 space-y-2">
+                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="vokabeltester.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+                <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
             </nav>
         </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <form id="addVocabForm" class="glassmorphic-form">
-                    <div>
-                        <label for="deutschesWort">Deutsches Wort:</label>
-                        <input type="text" id="deutschesWort" name="deutschesWort" required autocomplete="off">
-                    </div>
-                    <div>
-                        <label for="englischesWort">Englisches Wort:</label>
-                        <input type="text" id="englischesWort" name="englischesWort" required autocomplete="off">
-                    </div>
-                    <div>
-                        <label for="kategorie">Kategorie:</label>
-                        <input type="text" id="kategorie" name="kategorie" required autocomplete="on">
-                    </div>
-                    <button type="submit">Vokabel hinzufügen</button>
-                </form>
+    </header>
 
+    <!-- Main Form -->
+    <main class="min-h-screen flex items-center justify-center px-4 py-12">
+        <div class="w-full max-w-lg bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300">
+            <h1 class="text-2xl font-bold text-center text-indigo-700 mb-6">Neue Vokabel hinzufügen</h1>
+            <form id="addVocabForm" class="space-y-6">
+                <div>
+                    <label for="deutschesWort" class="block text-slate-800 font-medium mb-1">Deutsches Wort</label>
+                    <input type="text" id="deutschesWort" name="deutschesWort" required
+                        class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                </div>
 
-            </div>
-        </main>
-    </div>
-<script src="script.js"></script>
-<script src="hinzufuegen.js"></script>
+                <div>
+                    <label for="englischesWort" class="block text-slate-800 font-medium mb-1">Englisches Wort</label>
+                    <input type="text" id="englischesWort" name="englischesWort" required
+                        class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                </div>
+
+                <div>
+                    <label for="kategorie" class="block text-slate-800 font-medium mb-1">Kategorie</label>
+                    <input type="text" id="kategorie" name="kategorie" required
+                        class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
+                    Hinzufügen
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="hinzufuegen.js"></script>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
+        });
+    </script>
 </body>
 
 </html>
