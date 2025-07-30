@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vokabelAfrageFeedbackBereich = document.getElementById('vokabelAfrageFeedback')
 
     erstelleDropDown()
-    
+
     kategorieselect.addEventListener("change", () => {
         const ausgewählteKategorie = kategorienAbrufen()[kategorieselect.selectedIndex];
         console.log("Ausgewählte Kategorie," + ausgewählteKategorie);
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         const alleKategorien = kategorienAbrufen();
         kategorieAuswahlForm.style.display = 'none';
-        vokabelAbfrageBereich.style.display = 'flex'; 
+        vokabelAbfrageBereich.style.display = 'flex';
         vokabelAbfrageInput.style.display = 'flex';
 
         let ausgewählteKategorie = alleKategorien[kategorieselect.selectedIndex];
@@ -98,10 +98,15 @@ function zeigeNächsteFrage() {
     i++;
     feedbackAnzeige.textContent = "";
     eingabeFeld.value = "";
-    weiterButton.style.display = "none"
-    antwortButton.style.display = "flex"
+
+    weiterButton.classList.add('hidden');
+    antwortButton.classList.remove('hidden')
     if (i < VokabelKategorie.length) {
         let WordNachÜbersetzung = true;
+        eingabeFeld.focus();
+        kategorieAuswahl.classList.add('hidden');
+        vokabelAbfrageBereich.classList.remove('hidden');
+        testAbschlussBereich.classList.add('hidden');
         if (WordNachÜbersetzung) {
             abgefragteEigenschaft = "word";
             LösungEigenschaft = "translation";
@@ -117,10 +122,9 @@ function zeigeNächsteFrage() {
     } else {
         console.log("Deine Abfrage ist Fertig");
         alert("Deine Abfrage ist zu Ende");
-        testAbschlussBereich.style.display = 'flex'
-        kategorieAuswahl.style.display = 'none';
-        vokabelAbfrageBereich.style.display = 'none';
-        vokabelAbfrageInput.style.display = 'none';
+        kategorieAuswahl.classList.add('hidden');
+        vokabelAbfrageBereich.classList.add('hidden');
+        testAbschlussBereich.classList.remove('hidden');
         i = -1;
         VokabelKategorie = [];
     }
@@ -133,23 +137,26 @@ function überprüfeAntwort() {
     vokabelAfrageFeedbackBereich.style.display = 'flex'
 
     if (benutzerAntwort === richtigeAntwort) {
-        eingabeFeld.style.cursor = 'not-allowed'
-        feedbackAnzeige.style.color = "#2ecc71";
+        feedbackAnzeige.classList.remove('text-red-500');
+        feedbackAnzeige.classList.add('text-lime-600');
         feedbackAnzeige.textContent = "Ja, ist richtig!";
-        weiterButton.style.display = 'flex';
-        antwortButton.style.display = 'none';
+
+        weiterButton.classList.remove('hidden');
+        antwortButton.classList.add('hidden');
 
 
     } else {
-        feedbackAnzeige.style.color = "#e74c3c";
+        feedbackAnzeige.classList.remove('text-lime-600');
+        feedbackAnzeige.classList.add('text-red-500');
         feedbackAnzeige.textContent = "Nein, ist falsch! Das Richtige ist: " + richtigeAntwort;
-        weiterButton.style.display = 'none';
-        antwortButton.style.display = 'flex';
+
+        weiterButton.classList.add('hidden');
+        antwortButton.classList.remove('hidden');
     }
 }
 
 function zurückzuKategorieAuswahl() {
-    kategorieAuswahl.style.display = 'flex';
-    vokabelAbfrageBereich.style.display = 'none';
-    testAbschlussBereich.style.display = 'none';
+    kategorieAuswahl.classList.remove('hidden');
+    vokabelAbfrageBereich.classList.add('hidden');
+    testAbschlussBereich.classList.add('hidden');
 }
