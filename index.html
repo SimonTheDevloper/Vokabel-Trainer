@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vokabel hinzufügen</title>
-    <link href="dist/output.css" rel="stylesheet">
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Material Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Inter font for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.webmanifest">
     <style>
         /* Custom styles for the Inter font and animations */
@@ -14,6 +18,7 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* Keyframe animation for fading in and moving up */
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -26,10 +31,12 @@
             }
         }
 
+        /* Apply the fade-in-up animation */
         .animate-fadeInUp {
             animation: fadeInUp 0.8s ease-out forwards;
         }
 
+        /* Keyframe animation for a flowing gradient background */
         @keyframes gradient-flow {
 
             0%,
@@ -42,6 +49,7 @@
             }
         }
 
+        /* Apply the gradient flow animation */
         .animate-gradient {
             background-size: 400% 400%;
             animation: gradient-flow 6s ease-in-out infinite;
@@ -54,37 +62,41 @@
     <!-- Header -->
     <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex items-center justify-between px-4 py-3">
-            <span class="text-xl font-bold text-white">Vokabel hinzufügen</span>
+            <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
             <nav class="hidden md:flex space-x-4">
-                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="index.html" class="bg-indigo-800 px-3 py-2 rounded">Startseite</a>
                 <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
                 <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+                <a href="wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
             </nav>
+            <!-- Mobile menu button -->
             <button class="md:hidden" id="mobile-menu-button">
                 <i class="material-icons">menu</i>
             </button>
         </div>
-        <!-- Mobile Drawer -->
+        <!-- Mobile Drawer menu -->
         <div id="mobile-menu-drawer"
             class="md:hidden fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full transition-transform duration-300 z-40">
             <div class="p-4 border-b border-indigo-700">
                 <span class="text-xl font-bold">Menü</span>
             </div>
             <nav class="flex flex-col p-4 space-y-2">
-                <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+                <a href="index.html" class="bg-indigo-700 px-3 py-2 rounded">Startseite</a>
                 <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
                 <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+                <a href="wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hauptinhalt -->
-    <main class="pt-20 pb-10">
+    <!-- Main content area -->
+    <!-- Changed pt-20 to pt-10 for mobile, keeping pt-20 for larger screens -->
+    <main class="pt-10 pb-10 md:pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Haupt-Container für Inhalt -->
+            <!-- Main container for content -->
             <div class="flex flex-col items-center w-full py-10 space-y-12">
 
-                <!-- Header-Block mit Titel und Untertitel -->
+                <!-- Header block with title and subtitle -->
                 <section class="text-center max-w-3xl animate-fadeInUp">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900"
                         style="letter-spacing: -0.02em;">
@@ -99,7 +111,7 @@
                     </p>
                 </section>
 
-                <!-- "Was ist neu?" Container - Aktualisiert für Version 3.0 mit neuem Design -->
+                <!-- "What's new?" Container - Updated for Version 3.0 with new design -->
                 <section id="features"
                     class="py-16 bg-gradient-to-r from-indigo-50 to-blue-100 rounded-xl shadow-lg w-full max-w-4xl">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,12 +125,12 @@
                         </div>
 
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                            <!-- Highlight 1: Komplettes UI-Redesign -->
+                            <!-- Highlight 1: Complete UI Redesign -->
                             <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
                                 style="animation-delay: 0.2s;">
                                 <div class="flex items-start">
                                     <div class="bg-indigo-100 text-indigo-800 p-3 rounded-lg mr-4">
-                                        <span class="text-2xl">🎨</span> <!-- Emoji für Pinsel-Symbol -->
+                                        <span class="text-2xl">🎨</span> <!-- Emoji for brush icon -->
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-800 mb-2">Komplettes UI-Redesign</h3>
@@ -134,12 +146,12 @@
                                 </div>
                             </div>
 
-                            <!-- Highlight 2: Hinzufügen, Abfrage, Statistiken -->
+                            <!-- Highlight 2: Query UI / UX -->
                             <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
                                 style="animation-delay: 0.4s;">
                                 <div class="flex items-start">
                                     <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
-                                        <span class="text-2xl">🚀</span> <!-- Emoji für Raketen-Symbol -->
+                                        <span class="text-2xl">🚀</span> <!-- Emoji for rocket icon -->
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-800 mb-2">Abfrage UI / UX</h3>
@@ -166,6 +178,7 @@
     </main>
 
     <script>
+        // JavaScript for mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
         });

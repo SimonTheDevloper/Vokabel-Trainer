@@ -5,7 +5,8 @@ module.exports = {
     "./vokabeltester.html",
     "./vokabelabfrageUi.js",
     "./hinzufügen.html",
-    "./index.html"
+    "./index.html",
+    "./wörterbuch.html"
   ],
   theme: {
     extend: {},
