@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./voktestmitids.html",
-    "./vokabeltester.html",
-    "./vokabelabfrageUi.js",
-    "./hinzufügen.html",
-    "./index.html",
-    "./wörterbuch.html"
+    "./html/voktestmitids.html",
+    "./html/vokabeltester.html",
+    "./JS/vokabelabfrageUi.js",
+    "./html/hinzufügen.html",
+    "./html/index.html",
+    "./html/wörterbuch.html"
   ],
   theme: {
     extend: {},
