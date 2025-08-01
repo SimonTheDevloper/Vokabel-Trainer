@@ -12,17 +12,17 @@
 </head>
 
 <body onload="checkJSONWörterBuchStatus()" class="bg-blue-100 font-sans">
-  <!-- Header -->
   <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
       <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
       <nav class="hidden md:flex space-x-4">
-        <a href="index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a><a href="voktestmitids.html"
-          class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a><a href="hinzufügen.html"
-          class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a><a href="wörterbuch.html"
-          class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
+        <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+        <a href="voktestmitids.html" class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+        <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+        <a href="wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
       </nav>
-      <!-- Mobile menu button --><button class="md:hidden" id="mobile-menu-button">
+      <!-- Mobile menu button -->
+      <button class="md:hidden" id="mobile-menu-button">
         <i class="material-icons">menu</i>
       </button>
     </div>
@@ -33,10 +33,10 @@
         <span class="text-xl font-bold">Menü</span>
       </div>
       <nav class="flex flex-col p-4 space-y-2">
-        <a href="index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a><a href="voktestmitids.html"
-          class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a><a href="hinzufügen.html"
-          class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a><a href="wörterbuch.html"
-          class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
+        <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
+        <a href="voktestmitids.html" class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
+        <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
+        <a href="wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
       </nav>
     </div>
   </header>
@@ -48,7 +48,8 @@
       <form id="kategorieAuswahl"
         class="space-y-6 flex-col w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-8">
         <div>
-          <label for="testSelection" class="block text-slate-800 font-medium mb-1">Wähle die Kategorie
+          <label for="testSelection" class="block text-slate-800 text-center text-lg font-medium mb-2">Wähle eine
+            Kategorie
             aus:</label><select id="testSelection"
             class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
             <option value=""></option>
@@ -83,7 +84,7 @@
 
       <!-- Aktion Buttons -->
 
-      <div class="w-full flex gap-4 mb-6">
+      <div id="buttonBereich" class="w-full flex gap-4 mb-6">
         <button id="checkButton"
           class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
           Antworten</button><button id="nextButton"
@@ -114,9 +115,11 @@
           Vokabel hinzufügen</a>
       </div>
     </div>
+
+    </div>
   </main>
   <script src="script.js"></script>
-  <script type="module" src="/JS/abfrage/vokabelabfrageUi.js"></script>
+  <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
   <script>
     // Mobile menu toggle
     document.getElementById('mobile-menu-button').addEventListener('click', () => {
