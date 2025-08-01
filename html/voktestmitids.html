@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8" />
@@ -11,19 +11,18 @@
   <link rel="manifest" href="/manifest.webmanifest" />
 </head>
 
-<body onload="checkJSONWörterBuchStatus()" class="bg-blue-100 ">
+<body onload="checkJSONWörterBuchStatus()" class="bg-blue-100 font-sans">
   <!-- Header -->
   <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
       <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
       <nav class="hidden md:flex space-x-4">
-        <a href="/html/index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a>
-        <a href="/html/voktestmitids.html" class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
-        <a href="/html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
-        <a href="/html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
+        <a href="index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a><a href="voktestmitids.html"
+          class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a><a href="hinzufügen.html"
+          class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a><a href="wörterbuch.html"
+          class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
       </nav>
-      <!-- Mobile menu button -->
-      <button class="md:hidden" id="mobile-menu-button">
+      <!-- Mobile menu button --><button class="md:hidden" id="mobile-menu-button">
         <i class="material-icons">menu</i>
       </button>
     </div>
@@ -34,91 +33,101 @@
         <span class="text-xl font-bold">Menü</span>
       </div>
       <nav class="flex flex-col p-4 space-y-2">
-        <a href="/html/index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a>
-        <a href="/html/voktestmitids.html" class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
-        <a href="/html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
-        <a href="/html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
+        <a href="index.html" class="hover:bg-indigo-800 px-3 py-2 rounded">Startseite</a><a href="voktestmitids.html"
+          class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a><a href="hinzufügen.html"
+          class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a><a href="wörterbuch.html"
+          class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
       </nav>
     </div>
   </header>
+  <main class="min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-lg">
 
-  <main class="min-h-screen container mx-auto  flex items-center justify-center px-4 py-12">
-    <div class="flex flex-col w-full max-w-lg">
       <!-- Kategorie Auswahl -->
-      <form id="kategorieAuswahl" class="flex flex-col w-full max-w-md bg-blue-300 rounded-lg p-6 shadow-md mb-8">
-        <div class="mb-4">
-          <label for="testSelection" class="block text-center text-xl font-semibold text-slate-800 mb-3">
-            Wähle die Kategorie aus:
-          </label>
-          <select id="testSelection"
-            class="w-full rounded border bg-blue-200 text-lg text-slate-800 caret-blue-600 shadow-inner border-gray-300 px-4 py-3 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+
+      <form id="kategorieAuswahl"
+        class="space-y-6 flex-col w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-8">
+        <div>
+          <label for="testSelection" class="block text-slate-800 font-medium mb-1">Wähle die Kategorie
+            aus:</label><select id="testSelection"
+            class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
             <option value=""></option>
+
             <!-- Dynamische Optionen werden hier eingefügt -->
           </select>
         </div>
         <button type="submit"
-          class="w-full rounded bg-blue-400 px-4 py-3 font-semibold text-white transition hover:bg-blue-500">
+          class="w-full bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
           Vokabeltest starten
         </button>
       </form>
-
       <!-- Vokabel Abfrage Bereich -->
-      <div id="vokabelAbfrage" class="w-full max-w-md bg-blue-300 rounded-lg p-10 shadow-md mb-6 hidden">
-        <h1 id="frageAnzeige" class="text-center text-3xl font-semibold text-slate-800"></h1>
-      </div>
 
+      <div id="vokabelAbfrage" class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
+        <h1 id="frageAnzeige" class="text-center text-2xl font-bold text-indigo-700"></h1>
+      </div>
       <!-- Eingabefeld -->
-      <div id="vokabelAbfrageInput" class="w-full max-w-md bg-blue-300 rounded-lg p-4 shadow-md mb-6 hidden">
+
+      <div id="vokabelAbfrageInput"
+        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
         <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"
-          class="w-full rounded-md bg-blue-200 px-4 py-3 text-center text-lg font-semibold text-slate-800 caret-blue-600 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
+          class="w-full rounded-lg bg-blue-100 px-4 py-3 text-center text-base font-semibold text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none" />
       </div>
 
       <!-- Feedback Bereich -->
-      <div id="vokabelAfrageFeedback" class="w-full max-w-md bg-blue-300 rounded-lg p-4 shadow-md mb-6 hidden">
-        <div id="feedbackAnzeige" class=" flex-1 justify-center items-center text-center text-lg font-semibold"></div>
+
+      <div id="vokabelAfrageFeedback"
+        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
+        <div id="feedbackAnzeige" class="flex-1 justify-center items-center text-center text-lg font-semibold"></div>
       </div>
 
       <!-- Aktion Buttons -->
-      <div class="w-full max-w-md flex gap-4 mb-6 ">
+
+      <div class="w-full flex gap-4 mb-6">
         <button id="checkButton"
-          class="flex-1 rounded-lg bg-blue-400 text-center px-5  py-3 font-semibold text-white transition hover:bg-blue-500 hidden">
-          Antworten
-        </button>
-        <button id="nextButton"
-          class="flex-1 justify-center items-center rounded-lg bg-blue-400 px-5 py-3 font-extrabold text-white transition hover:bg-blue-500 hidden w-full">
+          class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
+          Antworten</button><button id="nextButton"
+          class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
           Weiter
         </button>
       </div>
 
       <!-- Test Ende Bereich -->
-      <div id="testZuendeBereich" class="w-full max-w-md bg-blue-300 rounded-lg p-6 shadow-md text-center ">
+
+      <div id="testZuendeBereich"
+        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 text-center hidden">
         <h2 class="text-xl font-bold mb-2">Der Test ist zuende</h2>
         <p class="mb-4">Du hast alle Fragen beantwortet</p>
         <button id="zurückZuKategorie"
-          class="rounded bg-blue-400 px-4 py-2 font-semibold text-white transition hover:bg-blue-500">
+          class="bg-blue-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
           Zurück
         </button>
       </div>
 
       <!-- Leeres Wörterbuch Nachricht -->
+
       <div id="empty-message" class="text-center mt-12 hidden">
         <h2 class="text-2xl mb-3">😕 Wörterbuch ist leer</h2>
         <p class="mb-5">Du hast noch keine Vokabeln hinzugefügt</p>
         <a href="hinzufügen.html"
-          class="inline-block rounded bg-blue-400 px-6 py-3 font-semibold text-white transition hover:bg-blue-500">
-          + Vokabel hinzufügen
-        </a>
+          class="inline-block bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-500 transition duration-200">+
+          Vokabel hinzufügen</a>
       </div>
     </div>
   </main>
-
-  <script src="/JS/script.js"></script>
+  <script src="script.js"></script>
   <script type="module" src="/JS/abfrage/vokabelabfrageUi.js"></script>
-
   <script>
-    // Mobile Menu Toggle
-    document.querySelector('header button').addEventListener('click', () => {
-      document.querySelector('.fixed').classList.toggle('-translate-x-full');
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', () => {
+      document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu-drawer').classList.add('-translate-x-full');
+      });
     });
   </script>
 </body>

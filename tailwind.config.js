@@ -3,7 +3,7 @@ module.exports = {
   content: [
     "./html/voktestmitids.html",
     "./html/vokabeltester.html",
-    "./JS/vokabelabfrageUi.js",
+    "./JS/abfrage/vokabelabfrageUi.js",
     "./html/hinzufügen.html",
     "./html/index.html",
     "./html/wörterbuch.html"
