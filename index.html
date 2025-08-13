@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vokabel hinzufügen</title>
+    <title>Vokabeltrainer - Startseite</title>
 
-    <link href="dist/output.css" rel="stylesheet">
-    <!-- Google Fonts for Material Icons -->
+    <!-- Using Tailwind CSS via CDN for easy setup -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts for Material Icons and Inter -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- Inter font for body text -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.webmanifest">
+
     <style>
-        /* Custom styles for the Inter font and animations */
-        body {
+        /* Using a more specific selector to avoid conflicts with Tailwind */
+        body.vokabel-app {
             font-family: 'Inter', sans-serif;
         }
 
@@ -22,7 +24,7 @@
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
 
             100% {
@@ -31,9 +33,8 @@
             }
         }
 
-        /* Apply the fade-in-up animation */
         .animate-fadeInUp {
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.7s ease-out forwards;
         }
 
         /* Keyframe animation for a flowing gradient background */
@@ -49,27 +50,30 @@
             }
         }
 
-        /* Apply the gradient flow animation */
         .animate-gradient {
-            background-size: 400% 400%;
+            background-size: 300% 300%;
             animation: gradient-flow 6s ease-in-out infinite;
+        }
+
+        /* Slider specific styles */
+        .slider-wrapper {
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="vokabel-app bg-blue-100">
 
     <!-- Header -->
     <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto flex items-center justify-between px-4 py-3">
             <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
             <nav class="hidden md:flex space-x-4">
-                <a href="index.html" class="bg-indigo-800 px-3 py-2 rounded">Startseite</a>
-                <a href="html/voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
-                <a href="html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Hinzufügen</a>
-                <a href="html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Wörterbuch</a>
+                <a href="index.html" class="bg-indigo-700 px-3 py-2 rounded-md font-semibold">Startseite</a>
+                <a href="html/voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
+                <a href="html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Hinzufügen</a>
+                <a href="html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Wörterbuch</a>
             </nav>
-            <!-- Mobile menu button -->
             <button class="md:hidden" id="mobile-menu-button">
                 <i class="material-icons">menu</i>
             </button>
@@ -90,85 +94,123 @@
     </header>
 
     <!-- Main content area -->
-    <!-- Changed pt-20 to pt-10 for mobile, keeping pt-20 for larger screens -->
-    <main class="pt-10 pb-10 md:pt-20">
+    <main class="py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Main container for content -->
-            <div class="flex flex-col items-center w-full py-10 space-y-12">
+            <div class="flex flex-col items-center w-full space-y-16">
 
-                <!-- Header block with title and subtitle -->
+                <!-- Hero Section -->
                 <section class="text-center max-w-3xl animate-fadeInUp">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900"
-                        style="letter-spacing: -0.02em;">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-slate-800">
                         MEHR <span
-                            class="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent animate-gradient">VOKABELN</span>.
+                            class="bg-gradient-to-r from-sky-500 via-indigo-500 to-teal-400 bg-clip-text text-transparent animate-gradient">VOKABELN</span>.
                         WENIGER AUFWAND.
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-600 font-normal mt-4 leading-relaxed">
-                        Lernen Sie effektiv mit unseren <span
-                            class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-semibold">modernen</span>
-                        Methoden.
+                    <p class="text-lg md:text-xl text-slate-600 font-normal mt-4 leading-relaxed">
+                        Lerne effektiv mit unseren <span class="font-semibold text-indigo-600">modernen</span> Methoden.
                     </p>
                 </section>
 
-                <!-- "What's new?" Container - Updated for Version 3.0 with new design -->
-                <section id="features"
-                    class="py-16 bg-gradient-to-r from-indigo-50 to-blue-100 rounded-xl shadow-lg w-full max-w-4xl">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="text-center mb-16 animate-fadeInUp">
-                            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Was ist <span
-                                    class="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent">neu
-                                    in Version 3.0?</span></h2>
-                            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                                Unser größtes Update aller Zeiten mit komplett neuem Design und vielen neuen Funktionen.
-                            </p>
+                <!-- "What's new?" Slider Section -->
+                <section class="w-full max-w-4xl animate-fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Was ist neu?</h2>
+                        <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                            Unsere neuesten Updates und Funktionen im Überblick.
+                        </p>
+                    </div>
+
+                    <!-- Slider Component -->
+                    <div id="slider"
+                        class="relative w-full bg-blue-200 rounded-2xl shadow-lg p-4 sm:p-6 border border-blue-300">
+                        <!-- Slider Container -->
+                        <div class="overflow-hidden rounded-xl">
+                            <div class="slider-wrapper flex">
+                                <!-- Slide 1 (Newest) -->
+                                <div class="w-full flex-shrink-0 p-2 sm:p-4">
+                                    <div
+                                        class="bg-white/70 backdrop-blur-sm rounded-xl p-8 h-full flex flex-col justify-between border border-blue-200">
+                                        <div>
+                                            <span
+                                                class="text-sm font-bold text-indigo-600 bg-indigo-100 px-3 py-1 rounded-full">Version
+                                                3.0</span>
+                                            <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Komplettes
+                                                UI-Redesign</h3>
+                                            <p class="text-slate-600">Alle Oberflächen wurden von Grund auf neu
+                                                gestaltet mit Fokus auf Benutzerfreundlichkeit und modernem Aussehen.
+                                            </p>
+                                        </div>
+                                        <div class="flex flex-wrap gap-2 mt-6">
+                                            <span
+                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">UI/UX</span>
+                                            <span
+                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 2 -->
+                                <div class="w-full flex-shrink-0 p-2 sm:p-4">
+                                    <div
+                                        class="bg-white/70 backdrop-blur-sm rounded-xl p-8 h-full flex flex-col justify-between border border-blue-200">
+                                        <div>
+                                            <span
+                                                class="text-sm font-bold text-green-600 bg-green-100 px-3 py-1 rounded-full">Version
+                                                2.5</span>
+                                            <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Verbesserte
+                                                Abfrage-Logik</h3>
+                                            <p class="text-slate-600">Die Vokabelabfrage ist jetzt noch intelligenter
+                                                und passt sich deinem Lernfortschritt an.</p>
+                                        </div>
+                                        <div class="flex flex-wrap gap-2 mt-6">
+                                            <span
+                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Lernalgorithmus</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Slide 3 -->
+                                <div class="w-full flex-shrink-0 p-2 sm:p-4">
+                                    <div
+                                        class="bg-white/70 backdrop-blur-sm rounded-xl p-8 h-full flex flex-col justify-between border border-blue-200">
+                                        <div>
+                                            <span
+                                                class="text-sm font-bold text-amber-600 bg-amber-100 px-3 py-1 rounded-full">Version
+                                                2.0</span>
+                                            <h3 class="text-2xl font-bold text-slate-800 mt-4 mb-2">Einführung des
+                                                Wörterbuchs</h3>
+                                            <p class="text-slate-600">Du kannst jetzt alle deine Vokabeln an einem
+                                                zentralen Ort nachschlagen und verwalten.</p>
+                                        </div>
+                                        <div class="flex flex-wrap gap-2 mt-6">
+                                            <span
+                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Feature</span>
+                                            <span
+                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Wörterbuch</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                            <!-- Highlight 1: Complete UI Redesign -->
-                            <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
-                                style="animation-delay: 0.2s;">
-                                <div class="flex items-start">
-                                    <div class="bg-indigo-100 text-indigo-800 p-3 rounded-lg mr-4">
-                                        <span class="text-2xl">🎨</span> <!-- Emoji for brush icon -->
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Komplettes UI-Redesign</h3>
-                                        <p class="text-gray-600 mb-4">Alle Oberflächen wurden von Grund auf neu
-                                            gestaltet mit Fokus auf Benutzerfreundlichkeit und modernem Aussehen.</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span
-                                                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Hinzufügen</span>
-                                            <span
-                                                class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Abfrage</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Slider Navigation Buttons -->
+                        <button id="prev-button"
+                            class="absolute top-1/2 left-0 sm:-left-5 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full shadow-lg hover:bg-blue-500 transition text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button id="next-button"
+                            class="absolute top-1/2 right-0 sm:-right-5 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full shadow-lg hover:bg-blue-500 transition text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
 
-                            <!-- Highlight 2: Query UI / UX -->
-                            <div class="bg-white rounded-2xl p-6 shadow-lg animate-fadeInUp"
-                                style="animation-delay: 0.4s;">
-                                <div class="flex items-start">
-                                    <div class="bg-green-100 text-green-800 p-3 rounded-lg mr-4">
-                                        <span class="text-2xl">🚀</span> <!-- Emoji for rocket icon -->
-                                    </div>
-                                    <div>
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Abfrage UI / UX</h3>
-                                        <p class="text-gray-600 mb-4">Die Abfragefunktion wurde mit einer
-                                            Benutzeroberfläche und einer verbesserten Benutzererfahrung komplett
-                                            überarbeitet.</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span
-                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Design</span>
-                                            <span
-                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">UI/UX</span>
-                                            <span
-                                                class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Abfrage</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- Slider Dots -->
+                        <div id="slider-dots" class="flex justify-center space-x-3 mt-6">
+                            <!-- Dots will be generated by JavaScript -->
                         </div>
                     </div>
                 </section>
@@ -178,9 +220,59 @@
     </main>
 
     <script>
-        // JavaScript for mobile menu toggle
+        // --- Mobile Menu Toggle ---
         document.getElementById('mobile-menu-button').addEventListener('click', () => {
             document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
+        });
+
+        // --- Slider Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            const slides = Array.from(sliderWrapper.children);
+            const nextButton = document.getElementById('next-button');
+            const prevButton = document.getElementById('prev-button');
+            const dotsContainer = document.getElementById('slider-dots');
+
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // --- Create Navigation Dots ---
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition', 'duration-300');
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                dotsContainer.appendChild(dot);
+            });
+            const dots = Array.from(dotsContainer.children);
+
+            // --- Core Slider Function ---
+            function goToSlide(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateDots();
+            }
+
+            // --- Update Dots Visual State ---
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('bg-blue-500');
+                        dot.classList.remove('bg-blue-300');
+                    } else {
+                        dot.classList.add('bg-blue-300');
+                        dot.classList.remove('bg-blue-500');
+                    }
+                });
+            }
+
+            // --- Event Listeners for Buttons ---
+            nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+            prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+            // --- Initialize Slider ---
+            goToSlide(0); // Start at the first slide
         });
     </script>
 
