@@ -983,6 +983,11 @@ video {
   background-color: rgb(217 249 157 / var(--tw-bg-opacity, 1));
 }
 
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity, 1));
+}
+
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
 }
