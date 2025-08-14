@@ -130,36 +130,8 @@
     </div>
   </main>
   <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
-  <script>
-    const menuBtn = document.getElementById('mobile-menu-button');
-    const closeBtn = document.getElementById('mobile-menu-close');
-    const drawer = document.getElementById('mobile-menu-drawer');
-    const overlay = document.getElementById('mobile-menu-overlay');
-
-    // Öffnen
-    menuBtn.addEventListener('click', () => {
-      drawer.classList.remove('-translate-x-full');
-      overlay.classList.remove('hidden');
-    });
-
-    // Schließen mit X
-    closeBtn.addEventListener('click', closeMenu);
-
-    // Schließen bei Klick auf Overlay
-    overlay.addEventListener('click', closeMenu);
-
-    // Schließen bei Klick auf Link
-    document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-
-    function closeMenu() {
-      drawer.classList.add('-translate-x-full');
-      overlay.classList.add('hidden');
-    }
-
+  <script src="../JS/menüUI.js">
   </script>
-  <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
 </body>
 
 
