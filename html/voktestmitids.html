@@ -26,12 +26,21 @@
         <i class="material-icons">menu</i>
       </button>
     </div>
+
+    <!-- Overlay (zum Schließen bei Klick außerhalb) -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+
     <!-- Mobile Drawer menu -->
     <div id="mobile-menu-drawer"
-      class="md:hidden fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full transition-transform duration-300 z-40">
-      <div class="p-4 border-b border-indigo-700">
+      class="md:hidden fixed inset-y-0 left-0 w-64 bg-indigo-800 text-white transform -translate-x-full transition-transform duration-300 z-50">
+
+      <div class="p-4 border-b border-indigo-700 flex justify-between items-center">
         <span class="text-xl font-bold">Menü</span>
+        <button id="mobile-menu-close" class="text-white">
+          <i class="material-icons">close</i>
+        </button>
       </div>
+
       <nav class="flex flex-col p-4 space-y-2">
         <a href="../index.html" class="hover:bg-indigo-700 px-3 py-2 rounded">Startseite</a>
         <a href="voktestmitids.html" class="bg-indigo-700 px-3 py-2 rounded">Vokabel-Test</a>
@@ -122,17 +131,33 @@
   </main>
   <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
   <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', () => {
-      document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
+    const menuBtn = document.getElementById('mobile-menu-button');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const overlay = document.getElementById('mobile-menu-overlay');
+
+    // Öffnen
+    menuBtn.addEventListener('click', () => {
+      drawer.classList.remove('-translate-x-full');
+      overlay.classList.remove('hidden');
     });
 
-    // Close menu when clicking links
+    // Schließen mit X
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Schließen bei Klick auf Overlay
+    overlay.addEventListener('click', closeMenu);
+
+    // Schließen bei Klick auf Link
     document.querySelectorAll('#mobile-menu-drawer a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobile-menu-drawer').classList.add('-translate-x-full');
-      });
+      link.addEventListener('click', closeMenu);
     });
+
+    function closeMenu() {
+      drawer.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    }
+
   </script>
   <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
 </body>
