@@ -24,9 +24,21 @@ let vokabelAfrageFeedbackBereich;
 let kategorieselect;
 let buttonBereich;
 
+function checkJSONWörterBuchStatus() {
+    if (Object.keys(vocabList).length == 0) {
+        console.log("Wörter-Buch ist leer");
+        document.getElementById('AbfrageTeil').classList.add('hidden');
+        document.getElementById('empty-message').classList.remove('hidden');
+
+    } else {
+        console.log("Wörter-Buch ist NICHT leer!");
+        document.getElementById('AbfrageTeil').classList.add('hidden');
+        document.getElementById('empty-message').classList.remove('hidden');
+    }
+}
 document.addEventListener('DOMContentLoaded', () => {
     ladeVokList();
-
+    checkJSONWörterBuchStatus();
     frageAnzeige = document.getElementById('frageAnzeige');
     eingabeFeld = document.getElementById('eingabeFeld');
     antwortButton = document.getElementById('checkButton');

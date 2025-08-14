@@ -11,7 +11,7 @@
   <link rel="manifest" href="/manifest.webmanifest" />
 </head>
 
-<body onload="checkJSONWörterBuchStatus()" class="bg-blue-100 font-sans">
+<body class="bg-blue-100 font-sans">
   <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50">
     <div class="container mx-auto flex items-center justify-between px-4 py-3">
       <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
@@ -44,81 +44,82 @@
     <div class="w-full max-w-lg">
 
       <!-- Kategorie Auswahl -->
+      <div id="AbfrageTeil" class="">
+        <form id="kategorieAuswahl"
+          class="space-y-6 flex-col w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-8">
+          <div>
+            <label for="testSelection" class="block text-slate-800 text-center text-lg font-medium mb-2">Wähle eine
+              Kategorie
+              aus:</label><select id="testSelection"
+              class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
+              <option value=""></option>
 
-      <form id="kategorieAuswahl"
-        class="space-y-6 flex-col w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-8">
-        <div>
-          <label for="testSelection" class="block text-slate-800 text-center text-lg font-medium mb-2">Wähle eine
-            Kategorie
-            aus:</label><select id="testSelection"
-            class="w-full rounded-lg bg-blue-100 px-4 py-3 text-base text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none">
-            <option value=""></option>
+              <!-- Dynamische Optionen werden hier eingefügt -->
+            </select>
+          </div>
+          <button type="submit"
+            class="w-full bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
+            Vokabeltest starten
+          </button>
+        </form>
+        <!-- Vokabel Abfrage Bereich -->
 
-            <!-- Dynamische Optionen werden hier eingefügt -->
-          </select>
+        <div id="vokabelAbfrage"
+          class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
+          <h1 id="frageAnzeige" class="text-center text-2xl font-bold text-indigo-700"></h1>
         </div>
-        <button type="submit"
-          class="w-full bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
-          Vokabeltest starten
-        </button>
-      </form>
-      <!-- Vokabel Abfrage Bereich -->
+        <!-- Eingabefeld -->
 
-      <div id="vokabelAbfrage" class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
-        <h1 id="frageAnzeige" class="text-center text-2xl font-bold text-indigo-700"></h1>
+        <div id="vokabelAbfrageInput"
+          class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
+          <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"
+            class="w-full rounded-lg bg-blue-100 px-4 py-3 text-center text-base font-semibold text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none" />
+        </div>
+
+        <!-- Feedback Bereich -->
+
+        <div id="vokabelAfrageFeedback"
+          class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
+          <div id="feedbackAnzeige" class="flex-1 justify-center items-center text-center text-lg font-semibold"></div>
+        </div>
+
+        <!-- Aktion Buttons -->
+
+        <div id="buttonBereich" class="w-full flex gap-4 mb-6">
+          <button id="checkButton"
+            class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
+            Antworten</button><button id="nextButton"
+            class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
+            Weiter
+          </button>
+        </div>
+
+        <!-- Test Ende Bereich -->
+
+        <div id="testZuendeBereich"
+          class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 text-center hidden">
+          <h2 class="text-xl font-bold mb-2">Der Test ist zuende</h2>
+          <p class="mb-4">Du hast alle Fragen beantwortet</p>
+          <button id="zurückZuKategorie"
+            class="bg-blue-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
+            Zurück
+          </button>
+        </div>
+
+        <!-- Leeres Wörterbuch Nachricht -->
       </div>
-      <!-- Eingabefeld -->
-
-      <div id="vokabelAbfrageInput"
-        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
-        <input type="text" id="eingabeFeld" placeholder="Deine Übersetzung"
-          class="w-full rounded-lg bg-blue-100 px-4 py-3 text-center text-base font-semibold text-slate-800 shadow-inner focus:ring-2 focus:ring-blue-400 focus:outline-none" />
-      </div>
-
-      <!-- Feedback Bereich -->
-
-      <div id="vokabelAfrageFeedback"
-        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 mb-6 hidden">
-        <div id="feedbackAnzeige" class="flex-1 justify-center items-center text-center text-lg font-semibold"></div>
-      </div>
-
-      <!-- Aktion Buttons -->
-
-      <div id="buttonBereich" class="w-full flex gap-4 mb-6">
-        <button id="checkButton"
-          class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
-          Antworten</button><button id="nextButton"
-          class="flex-1 bg-blue-400 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-500 transition duration-200 hidden">
-          Weiter
-        </button>
-      </div>
-
-      <!-- Test Ende Bereich -->
-
-      <div id="testZuendeBereich"
-        class="w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 text-center hidden">
-        <h2 class="text-xl font-bold mb-2">Der Test ist zuende</h2>
-        <p class="mb-4">Du hast alle Fragen beantwortet</p>
-        <button id="zurückZuKategorie"
-          class="bg-blue-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-200">
-          Zurück
-        </button>
-      </div>
-
-      <!-- Leeres Wörterbuch Nachricht -->
-
-      <div id="empty-message" class="text-center mt-12 hidden">
+      <div id="empty-message"
+        class="text-center mt-12 w-full bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 hiddenhidden">
         <h2 class="text-2xl mb-3">😕 Wörterbuch ist leer</h2>
         <p class="mb-5">Du hast noch keine Vokabeln hinzugefügt</p>
         <a href="hinzufügen.html"
-          class="inline-block bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-500 transition duration-200">+
+          class="inline-block bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-500 transition duration-200">
           Vokabel hinzufügen</a>
       </div>
     </div>
 
     </div>
   </main>
-  <script src="script.js"></script>
   <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
   <script>
     // Mobile menu toggle
@@ -133,6 +134,8 @@
       });
     });
   </script>
+  <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
 </body>
+
 
 </html>
