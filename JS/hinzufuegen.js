@@ -1,3 +1,4 @@
+import { überprüfungDerInputs } from './hinzufügenUI.js'
 let vocabList;
 vocabList = JSON.parse(localStorage.getItem('vokabelListe')) || [];
 
@@ -7,10 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     addVocabForm.addEventListener('submit', function (event) {
 
         event.preventDefault();
+        überprüfungDerInputs()
         const deutschesWort = document.getElementById('deutschesWort').value.trim();
         const englischesWort = document.getElementById('englischesWort').value.trim();
         const kategorie = document.getElementById('kategorie').value.trim();
-
+        /*
         // Neues Vokabelobjekt erstellen
         const neueVokabel = {
             word: deutschesWort,
@@ -26,6 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         localStorage.setItem('vokabelListe', JSON.stringify(vocabList));
 
-        console.log("Aktualisierte Vokabelliste:", vocabList);
+        console.log("Aktualisierte Vokabelliste:", vocabList); */
     });
 });
