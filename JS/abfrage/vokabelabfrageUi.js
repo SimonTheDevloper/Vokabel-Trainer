@@ -32,8 +32,8 @@ function checkJSONWörterBuchStatus() {
 
     } else {
         console.log("Wörter-Buch ist NICHT leer!");
-        document.getElementById('AbfrageTeil').classList.add('hidden');
-        document.getElementById('empty-message').classList.remove('hidden');
+        document.getElementById('AbfrageTeil').classList.remove('hidden');
+        document.getElementById('empty-message').classList.add('hidden');
     }
 }
 document.addEventListener('DOMContentLoaded', () => {
