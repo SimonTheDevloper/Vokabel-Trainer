@@ -54,7 +54,14 @@
 
         <!-- Main Form -->
         <main class="min-h-screen flex items-center justify-center px-4 py-12">
-            <div class="w-full max-w-lg bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300">
+            <div
+                class="w-full max-w-lg bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 relative overflow-hidden">
+                <!-- Feedback-Nachricht -->
+                <div id="feedback-message"
+                    class="absolute top-0 left-0 w-full bg-amber-100 border-b-4 border-amber-500 text-amber-700 p-5 text-center transform -translate-y-full transition-transform duration-300 ease-in-out">
+                    <p class="font-medium">Vokabel erfolgreich hinzugefügt!</p>
+                </div>
+
                 <h1 class="text-2xl font-bold text-center text-indigo-700 mb-6">Neue Vokabel hinzufügen</h1>
                 <form id="addVocabForm" class="space-y-6">
                     <div>
@@ -86,9 +93,9 @@
         </main>
 
         <script src="../JS/script.js"></script>
-        <script src="../JS/hinzufuegen.js"></script>
         <script src="../JS/menüUI.js"></script>
-        <script src="../JS/hinzufügenUI.js"></script>
+        <script type="module" src="../JS/hinzufügenUI.js"></script>
+        <script type="module" src="../JS/hinzufuegen.js"></script>
     </body>
 
 </html>
