@@ -124,6 +124,7 @@ function zeigeNächsteFrage() {
     if (i < VokabelKategorie.length) {
         let WordNachÜbersetzung = true;
         eingabeFeld.focus();
+        fortschrittanzeigeUpdata()
 
         if (WordNachÜbersetzung) {
             abgefragteEigenschaft = "word";
@@ -146,7 +147,14 @@ function zeigeNächsteFrage() {
         VokabelKategorie = [];
     }
 }
+function fortschrittanzeigeUpdata() {
+    const fortschrittText = document.getElementById("progressText");
+    const fortschrittbar = document.getElementById("progressBar");
 
+    const fortschrittProzent = ((i + 1) / VokabelKategorie.length) * 100;
+    fortschrittText.textContent = `${i + 1} von ${VokabelKategorie.length}`;
+    fortschrittbar.style.width = `${fortschrittProzent}%`;
+}
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     const richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
