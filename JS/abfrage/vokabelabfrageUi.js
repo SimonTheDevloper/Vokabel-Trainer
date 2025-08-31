@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     kategorieAuswahlForm = document.getElementById('kategorieAuswahl');
     vokabelAbfrageBereich = document.getElementById('vokabelAbfrage');
     zurückZurKategorieAuswahlBtn = document.getElementById('zurückZuKategorie');
-    vokabelAbfrageInput = document.getElementById('vokabelAbfrageInput');
-    vokabelAfrageFeedbackBereich = document.getElementById('vokabelAfrageFeedback');
+    vokabelAbfrageInput = document.getElementById('eingabeFeld');
+    vokabelAfrageFeedbackBereich = document.getElementById('feedbackAnzeige');
     buttonBereich = document.getElementById('buttonBereich');
     kategorieselect = document.getElementById('testSelection');
 
