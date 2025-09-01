@@ -23,6 +23,8 @@ let vokabelAbfrageInput;
 let vokabelAfrageFeedbackBereich;
 let kategorieselect;
 let buttonBereich;
+let feedbackMessage;
+let feedbacktext;
 
 function checkJSONWörterBuchStatus() {
     if (Object.keys(vocabList).length == 0) {
@@ -52,6 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     vokabelAfrageFeedbackBereich = document.getElementById('feedbackAnzeige');
     buttonBereich = document.getElementById('buttonBereich');
     kategorieselect = document.getElementById('testSelection');
+    feedbackMessage = document.getElementById('feedbackMessage');
+    feedbacktext = document.getElementById('feedbacktext')
 
     erstelleDropDown();
 
@@ -157,22 +161,22 @@ function fortschrittanzeigeUpdata() {
 }
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
-    const richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
+    let richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
 
     // Sichtbarkeit aktualisieren
     vokabelAfrageFeedbackBereich.classList.remove('hidden');
-
-    if (benutzerAntwort === richtigeAntwort) {
+    let richtig = benutzerAntwort === richtigeAntwort
+    if (richtig) {
         feedbackAnzeige.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
         feedbackAnzeige.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-green-600';
-
+        zeigeFeedback(true, richtigeAntwort);
         vokabelAbfrageInput.classList.add('hidden');
         antwortButton.classList.add('hidden');
         weiterButton.classList.remove('hidden');
     } else {
         feedbackAnzeige.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
         feedbackAnzeige.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-red-600';
-
+        zeigeFeedback(false, richtigeAntwort);
         antwortButton.classList.remove('hidden');
         weiterButton.classList.add('hidden');
     }
@@ -190,3 +194,20 @@ function zurückzuKategorieAuswahl() {
     i = -1;
     VokabelKategorie = [];
 }
+function zeigeFeedback(richtig, richtigeAntwort) {
+
+    if (richtig) {
+        feedbacktext.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`
+        feedbacktext.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-green-600';
+    }
+    else {
+        feedbacktext.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
+    }
+    // Slide in
+    feedbackMessage.classList.remove('-translate-y-full');
+
+    // Slide out after 3 seconds
+    setTimeout(() => {
+        feedbackMessage.classList.add('-translate-y-full');
+    }, 3000);
+};
