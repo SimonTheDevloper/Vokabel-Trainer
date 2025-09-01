@@ -155,8 +155,8 @@ function fortschrittanzeigeUpdata() {
         const fortschrittText = document.getElementById("progressText");
         const fortschrittbar = document.getElementById("progressBar");
 
-        const fortschrittProzent = ((i) / VokabelKategorie.length) * 100;
-        fortschrittText.textContent = `${i} von ${VokabelKategorie.length}`;
+        const fortschrittProzent = ((i + 1) / VokabelKategorie.length) * 100;
+        fortschrittText.textContent = `${i + 1} von ${VokabelKategorie.length}`;
         fortschrittbar.style.width = `${fortschrittProzent}%`;
     } else {
         progressBar.style.width = '0%';
