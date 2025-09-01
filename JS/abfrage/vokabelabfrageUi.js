@@ -13,18 +13,18 @@ let LösungEigenschaft = "";
 let frageAnzeige;
 let eingabeFeld;
 let antwortButton;
-let feedbackAnzeige;
+let feedbackAnzeigerichtig;
 let testAbschlussBereich;
 let weiterButton;
 let kategorieAuswahlForm;
 let vokabelAbfrageBereich;
 let zurückZurKategorieAuswahlBtn;
 let vokabelAbfrageInput;
-let vokabelAfrageFeedbackBereich;
+let FeedbackMessageRichtig;
 let kategorieselect;
 let buttonBereich;
-let feedbackMessage;
-let feedbacktext;
+let feedbackMessageFalsch;
+let feedbacktextFalsch;
 
 function checkJSONWörterBuchStatus() {
     if (Object.keys(vocabList).length == 0) {
@@ -44,18 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
     frageAnzeige = document.getElementById('frageAnzeige');
     eingabeFeld = document.getElementById('eingabeFeld');
     antwortButton = document.getElementById('checkButton');
-    feedbackAnzeige = document.getElementById('feedbackAnzeige');
+    feedbackAnzeigerichtig = document.getElementById('feedbackAnzeigeRichtig');
     testAbschlussBereich = document.getElementById('testZuendeBereich');
     weiterButton = document.getElementById('nextButton');
     kategorieAuswahlForm = document.getElementById('kategorieAuswahl');
     vokabelAbfrageBereich = document.getElementById('vokabelAbfrage');
     zurückZurKategorieAuswahlBtn = document.getElementById('zurückZuKategorie');
     vokabelAbfrageInput = document.getElementById('eingabeFeld');
-    vokabelAfrageFeedbackBereich = document.getElementById('feedbackAnzeige');
+    FeedbackMessageRichtig = document.getElementById('feedbackAnzeigeRichtig');
     buttonBereich = document.getElementById('buttonBereich');
     kategorieselect = document.getElementById('testSelection');
-    feedbackMessage = document.getElementById('feedbackMessage');
-    feedbacktext = document.getElementById('feedbacktext')
+    feedbackMessageFalsch = document.getElementById('feedbackMessageFalsch');
+    feedbacktextFalsch = document.getElementById('feedbacktextFalsch');
 
     erstelleDropDown();
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         vokabelAbfrageBereich.classList.remove('hidden');
         vokabelAbfrageInput.classList.remove('hidden');
         testAbschlussBereich.classList.add('hidden');
-        vokabelAfrageFeedbackBereich.classList.add('hidden');
+        FeedbackMessageRichtig.classList.add('hidden');
         weiterButton.classList.add('hidden');
         antwortButton.classList.add('hidden');
         buttonBereich.classList.remove('hidden');
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     vokabelAbfrageBereich.classList.add('hidden');
     vokabelAbfrageInput.classList.add('hidden');
     testAbschlussBereich.classList.add('hidden');
-    vokabelAfrageFeedbackBereich.classList.add('hidden');
+    FeedbackMessageRichtig.classList.add('hidden');
     weiterButton.classList.add('hidden');
     buttonBereich.classList.add('hidden');
 });
@@ -115,11 +115,11 @@ function erstelleDropDown() {
 
 function zeigeNächsteFrage() {
     i++;
-    feedbackAnzeige.textContent = "";
+    feedbackAnzeigerichtig.textContent = "";
     eingabeFeld.value = "";
 
     // Sichtbarkeit zurücksetzen
-    vokabelAfrageFeedbackBereich.classList.add('hidden');
+    FeedbackMessageRichtig.classList.add('hidden');
     vokabelAbfrageInput.classList.remove('hidden');
     antwortButton.classList.remove('hidden');
     weiterButton.classList.add('hidden');
@@ -144,7 +144,7 @@ function zeigeNächsteFrage() {
         kategorieAuswahlForm.classList.add('hidden');
         vokabelAbfrageBereich.classList.add('hidden');
         vokabelAbfrageInput.classList.add('hidden');
-        vokabelAfrageFeedbackBereich.classList.add('hidden');
+        FeedbackMessageRichtig.classList.add('hidden');
         testAbschlussBereich.classList.remove('hidden');
         buttonBereich.classList.add('hidden');
         i = -1;
@@ -164,18 +164,14 @@ function überprüfeAntwort() {
     let richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
 
     // Sichtbarkeit aktualisieren
-    vokabelAfrageFeedbackBereich.classList.remove('hidden');
+    FeedbackMessageRichtig.classList.remove('hidden');
     let richtig = benutzerAntwort === richtigeAntwort
     if (richtig) {
-        feedbackAnzeige.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
-        feedbackAnzeige.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-green-600';
         zeigeFeedback(true, richtigeAntwort);
         vokabelAbfrageInput.classList.add('hidden');
         antwortButton.classList.add('hidden');
         weiterButton.classList.remove('hidden');
     } else {
-        feedbackAnzeige.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
-        feedbackAnzeige.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-red-600';
         zeigeFeedback(false, richtigeAntwort);
         antwortButton.classList.remove('hidden');
         weiterButton.classList.add('hidden');
@@ -188,7 +184,7 @@ function zurückzuKategorieAuswahl() {
     vokabelAbfrageBereich.classList.add('hidden');
     vokabelAbfrageInput.classList.add('hidden');
     testAbschlussBereich.classList.add('hidden');
-    vokabelAfrageFeedbackBereich.classList.add('hidden');
+    FeedbackMessageRichtig.classList.add('hidden');
 
     // Zustand zurücksetzen
     i = -1;
@@ -197,17 +193,21 @@ function zurückzuKategorieAuswahl() {
 function zeigeFeedback(richtig, richtigeAntwort) {
 
     if (richtig) {
-        feedbacktext.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`
-        feedbacktext.className = 'flex-1 justify-center items-center text-center text-lg font-semibold text-green-600';
+        feedbackAnzeigerichtig.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
+        feedbackMessageFalsch.classList.add('hidden');
+        feedbackAnzeigerichtig.classList.remove('hidden')
     }
     else {
-        feedbacktext.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
-    }
-    // Slide in
-    feedbackMessage.classList.remove('-translate-y-full');
+        feedbackMessageFalsch.classList.remove('hidden');
+        feedbackAnzeigerichtig.classList.add('hidden')
+        feedbacktextFalsch.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
+        // Slide in
+        feedbackMessageFalsch.classList.remove('-translate-y-full');
 
-    // Slide out after 3 seconds
-    setTimeout(() => {
-        feedbackMessage.classList.add('-translate-y-full');
-    }, 3000);
+        // Slide out after 3 seconds
+        setTimeout(() => {
+            feedbackMessageFalsch.classList.add('-translate-y-full');
+        }, 3000);
+    }
+
 };

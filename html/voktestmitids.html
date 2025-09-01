@@ -55,9 +55,9 @@
       <div id="mainContentContainer"
         class="w-full max-w-lg bg-blue-200 rounded-2xl shadow-lg p-8 border border-blue-300 relative overflow-hidden">
         <!-- Feedback-Nachricht -->
-        <div id="feedbackMessage"
+        <div id="feedbackMessageFalsch"
           class="absolute top-0 left-0 w-full bg-amber-100 border-b-4 border-amber-500 text-amber-700 p-5 text-center transform -translate-y-full transition-transform duration-300 ease-in-out">
-          <p id="feedbacktext" class="font-medium">Vokabel erfolgreich hinzugefügt!</p>
+          <p id="feedbacktextFalsch" class="font-medium"></p>
         </div>
         <!-- Kategorie Auswahl Formular -->
         <form id="kategorieAuswahl" class="w-full flex-col space-y-6">
@@ -100,9 +100,9 @@
           </div>
 
           <!-- Feedback Bereich -->
-          <div id="feedbackAnzeige"
-            class="w-full rounded-xl bg-blue-100 p-4 text-center text-lg font-semibold shadow-inner hidden"></div>
-
+          <div id="feedbackAnzeigeRichtig"
+            class="bg-green-100 border-b-4 border-green-500 text-green-700 p-4 mb-6 rounded hidden flex-1 justify-center items-center text-center text-lg font-semibold ">
+          </div>
           <!-- Aktion Buttons -->
           <div id="buttonBereich" class="flex w-full gap-4">
             <button id="checkButton"
