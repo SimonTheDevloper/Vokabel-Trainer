@@ -117,7 +117,7 @@ function zeigeNächsteFrage() {
     i++;
     feedbackAnzeigerichtig.textContent = "";
     eingabeFeld.value = "";
-
+    fortschrittanzeigeUpdata();
     // Sichtbarkeit zurücksetzen
     FeedbackMessageRichtig.classList.add('hidden');
     vokabelAbfrageInput.classList.remove('hidden');
@@ -128,7 +128,6 @@ function zeigeNächsteFrage() {
     if (i < VokabelKategorie.length) {
         let WordNachÜbersetzung = true;
         eingabeFeld.focus();
-        fortschrittanzeigeUpdata()
 
         if (WordNachÜbersetzung) {
             abgefragteEigenschaft = "word";
@@ -152,13 +151,18 @@ function zeigeNächsteFrage() {
     }
 }
 function fortschrittanzeigeUpdata() {
-    const fortschrittText = document.getElementById("progressText");
-    const fortschrittbar = document.getElementById("progressBar");
+    if (VokabelKategorie.length > 0) {
+        const fortschrittText = document.getElementById("progressText");
+        const fortschrittbar = document.getElementById("progressBar");
 
-    const fortschrittProzent = ((i + 1) / VokabelKategorie.length) * 100;
-    fortschrittText.textContent = `${i + 1} von ${VokabelKategorie.length}`;
-    fortschrittbar.style.width = `${fortschrittProzent}%`;
-}
+        const fortschrittProzent = ((i) / VokabelKategorie.length) * 100;
+        fortschrittText.textContent = `${i} von ${VokabelKategorie.length}`;
+        fortschrittbar.style.width = `${fortschrittProzent}%`;
+    } else {
+        progressBar.style.width = '0%';
+        progressText.textContent = '0 von 0';
+    }
+};
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     let richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
@@ -195,7 +199,7 @@ function zeigeFeedback(richtig, richtigeAntwort) {
     if (richtig) {
         feedbackAnzeigerichtig.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
         feedbackMessageFalsch.classList.add('hidden');
-        feedbackAnzeigerichtig.classList.remove('hidden')
+        feedbackAnzeigerichtig.classList.remove('hidden');
     }
     else {
         feedbackMessageFalsch.classList.remove('hidden');
