@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     kategorieselect = document.getElementById('testSelection');
     feedbackMessageFalsch = document.getElementById('feedbackMessageFalsch');
     feedbacktextFalsch = document.getElementById('feedbacktextFalsch');
-
     erstelleDropDown();
 
     kategorieAuswahlForm.addEventListener('submit', function (event) {
@@ -118,6 +117,7 @@ function zeigeNächsteFrage() {
     feedbackAnzeigerichtig.textContent = "";
     eingabeFeld.value = "";
     fortschrittanzeigeUpdata();
+    testeObFeldVollIst();
     // Sichtbarkeit zurücksetzen
     FeedbackMessageRichtig.classList.add('hidden');
     vokabelAbfrageInput.classList.remove('hidden');
@@ -150,6 +150,14 @@ function zeigeNächsteFrage() {
         VokabelKategorie = [];
     }
 }
+function testeObFeldVollIst() {
+    antwortButton.disabled = true;
+    eingabeFeld.addEventListener('input', () => {
+        const eigabeFeldVoll = eingabeFeld.value.trim() !== '';
+        antwortButton.disabled = !eigabeFeldVoll;
+    });
+}
+
 function fortschrittanzeigeUpdata() {
     if (VokabelKategorie.length > 0) {
         const fortschrittText = document.getElementById("progressText");
@@ -215,3 +223,4 @@ function zeigeFeedback(richtig, richtigeAntwort) {
     }
 
 };
+
