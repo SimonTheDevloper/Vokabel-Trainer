@@ -187,6 +187,7 @@ function überprüfeAntwort() {
         zeigeFeedback(false, richtigeAntwort);
         antwortButton.classList.remove('hidden');
         weiterButton.classList.add('hidden');
+        VokabelKategorie.push(VokabelKategorie[i])
     }
 }
 
@@ -210,13 +211,12 @@ function zeigeFeedback(richtig, richtigeAntwort) {
         feedbackAnzeigerichtig.classList.remove('hidden');
     }
     else {
+        console.log(VokabelKategorie[i])
         feedbackMessageFalsch.classList.remove('hidden');
         feedbackAnzeigerichtig.classList.add('hidden')
         feedbacktextFalsch.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
-        // Slide in
         feedbackMessageFalsch.classList.remove('-translate-y-full');
 
-        // Slide out after 3 seconds
         setTimeout(() => {
             feedbackMessageFalsch.classList.add('-translate-y-full');
         }, 3000);
