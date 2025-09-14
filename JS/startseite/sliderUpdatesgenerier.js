@@ -3,7 +3,6 @@ const sliderWrapper = document.querySelector('.slider-wrapper');
 sliderWrapper.innerHTML = ''; // Leert den Container 
 
 updates.forEach(update => {
-    console.log("test")
     const tagsHtml = update.tags.map(tag => ` <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">${tag}</span>
     `).join('');
 
