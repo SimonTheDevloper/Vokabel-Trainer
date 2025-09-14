@@ -1,5 +1,6 @@
 import { vocabList, ladeVokList, kategorienAbrufen } from './vokabelabfrage-Data.js'
 import { shuffle } from './vokabelabfrage-Suffle.js'
+import { vorlesen } from './vokabelAbfrage-Vorlesen.js'
 
 
 
@@ -25,6 +26,7 @@ let kategorieselect;
 let buttonBereich;
 let feedbackMessageFalsch;
 let feedbacktextFalsch;
+let vorleseText;
 
 function checkJSONWörterBuchStatus() {
     if (Object.keys(vocabList).length == 0) {
@@ -87,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     weiterButton.addEventListener('click', zeigeNächsteFrage);
     zurückZurKategorieAuswahlBtn.addEventListener('click', zurückzuKategorieAuswahl);
 
-    // Initiale Sichtbarkeit
     kategorieAuswahlForm.classList.remove('hidden');
     vokabelAbfrageBereich.classList.add('hidden');
     vokabelAbfrageInput.classList.add('hidden');
@@ -118,7 +119,7 @@ function zeigeNächsteFrage() {
     eingabeFeld.value = "";
     fortschrittanzeigeUpdata();
     testeObFeldVollIst();
-    // Sichtbarkeit zurücksetzen
+
     FeedbackMessageRichtig.classList.add('hidden');
     vokabelAbfrageInput.classList.remove('hidden');
     antwortButton.classList.remove('hidden');
@@ -136,7 +137,6 @@ function zeigeNächsteFrage() {
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
-
         frageAnzeige.textContent = `Was ist die Übersetzung von ${VokabelKategorie[i][abgefragteEigenschaft]}?`;
     } else {
         // Testende
@@ -174,6 +174,8 @@ function fortschrittanzeigeUpdata() {
 function überprüfeAntwort() {
     const benutzerAntwort = eingabeFeld.value.trim();
     let richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
+    vorleseText = richtigeAntwort;
+    vorlesen(vorleseText)
 
     // Sichtbarkeit aktualisieren
     FeedbackMessageRichtig.classList.remove('hidden');
@@ -199,7 +201,7 @@ function zurückzuKategorieAuswahl() {
     testAbschlussBereich.classList.add('hidden');
     FeedbackMessageRichtig.classList.add('hidden');
 
-    // Zustand zurücksetzen
+    // i zurücksetzen
     i = -1;
     VokabelKategorie = [];
 }
