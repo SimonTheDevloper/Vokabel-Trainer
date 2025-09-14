@@ -1,8 +1,16 @@
 export const updates = [
     {
+        "version": "3.5.0",
+        "versionColor": "yellow",
+        "isNew": true,
+        "title": "Vorlese-Funktion hinzugefügt",
+        "description": "Wenn man bei der Abfrage geantwortet hat, wird die übersetztung vorgelesen",
+        "tags": ["Vorlesen", "Feature", "Abfrage"]
+    },
+    {
         "version": "3.2.2",
         "versionColor": "slate",
-        "isNew": true,
+        "isNew": false,
         "title": "Wörterbuch ist leer wieder hinzugefügt",
         "description": "Wenn keine Vokabeln Hinzugefügt wurden, ploppt bei der Abfrage ein Kasten auf",
         "tags": ["UX/UI", "Feature", "Abfrage"]
