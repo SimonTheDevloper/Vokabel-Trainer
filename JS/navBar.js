@@ -33,3 +33,4 @@ const mobileNavHTML = `
 </nav>
 `;
 document.body.insertAdjacentHTML('afterbegin', mobileNavHTML); //fügt die Navbar in den Body teil ein
+

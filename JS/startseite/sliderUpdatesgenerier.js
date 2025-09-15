@@ -27,10 +27,6 @@ updates.forEach(update => {
     `;
     sliderWrapper.innerHTML += slideHtml;
 });
-// --- Mobile Menu Toggle ---
-document.getElementById('mobile-menu-button').addEventListener('click', () => {
-    document.getElementById('mobile-menu-drawer').classList.toggle('-translate-x-full');
-});
 
 // --- Slider Logic ---
 document.addEventListener('DOMContentLoaded', () => {
