@@ -12,43 +12,6 @@
 </head>
 
 <body class="bg-blue-100 font-sans">
-  <header class="sticky top-0 z-50 bg-indigo-600 text-white shadow-md">
-    <div class="container mx-auto flex items-center justify-between px-4 py-3">
-      <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
-      <nav class="hidden space-x-4 md:flex">
-        <a href="../index.html" class="rounded px-3 py-2 hover:bg-indigo-700">Startseite</a>
-        <a href="voktestmitids.html" class="rounded bg-indigo-700 px-3 py-2">Vokabel-Test</a>
-        <a href="hinzufügen.html" class="rounded px-3 py-2 hover:bg-indigo-700">Hinzufügen</a>
-        <a href="wörterbuch.html" class="rounded px-3 py-2 hover:bg-indigo-700">Wörterbuch</a>
-      </nav>
-      <!-- Mobile menu button -->
-      <button class="md:hidden" id="mobile-menu-button">
-        <i class="material-icons">menu</i>
-      </button>
-    </div>
-
-    <!-- Overlay (zum Schließen bei Klick außerhalb) -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 z-40 hidden bg-black bg-opacity-50"></div>
-
-    <!-- Mobile Drawer menu -->
-    <div id="mobile-menu-drawer"
-      class="fixed inset-y-0 left-0 z-50 w-64 -translate-x-full transform bg-indigo-800 text-white transition-transform duration-300 md:hidden">
-      <div class="flex items-center justify-between border-b border-indigo-700 p-4">
-        <span class="text-xl font-bold">Menü</span>
-        <button id="mobile-menu-close" class="text-white">
-          <i class="material-icons">close</i>
-        </button>
-      </div>
-
-      <nav class="flex flex-col space-y-2 p-4">
-        <a href="../index.html" class="rounded px-3 py-2 hover:bg-indigo-700">Startseite</a>
-        <a href="voktestmitids.html" class="rounded bg-indigo-700 px-3 py-2">Vokabel-Test</a>
-        <a href="hinzufügen.html" class="rounded px-3 py-2 hover:bg-indigo-700">Hinzufügen</a>
-        <a href="wörterbuch.html" class="rounded px-3 py-2 hover:bg-indigo-700">Wörterbuch</a>
-      </nav>
-    </div>
-  </header>
-
   <main class="flex min-h-screen items-center justify-center px-4 py-12">
     <div class="w-full max-w-lg">
       <!-- Haupt-Container für die Vokabel-Abfrage -->
@@ -136,7 +99,7 @@
   </main>
 
   <script type="module" src="../JS/abfrage/vokabelabfrageUi.js"></script>
-  <script src="../JS/menüUI.js"></script>
+  <script src="../JS/navBar.js"></script>
 </body>
 
 </html>
