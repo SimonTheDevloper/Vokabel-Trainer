@@ -4,9 +4,9 @@ const mobileNavHTML = `
     <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
     <nav class="flex space-x-4">
       <a href="index.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md font-semibold">Startseite</a>
-      <a href="html/voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
-      <a href="html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Hinzufügen</a>
-      <a href="html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Wörterbuch</a>
+      <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
+      <a href="hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Hinzufügen</a>
+      <a href="wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Wörterbuch</a>
     </nav>
   </div>
 </header>
