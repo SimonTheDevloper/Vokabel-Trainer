@@ -2,7 +2,7 @@
   "name": "Vocaloop",
   "short_name": "Vocaloop",
   "description": "Ein cooler Vokabeltrainer um seine Vokabeln zu trainieren",
-  "start_url": "/https://simonthedevloper.github.io/Vokabel-Trainer/",
+  "start_url": "/Vokabel-Trainer/html/vokabeltester-Vok-Auswahl.html",
   "display": "standalone",
   "background_color": "#020fa6",
   "theme_color": "#020fa6",
