@@ -5,7 +5,7 @@
   "start_url": "/Vokabel-Trainer//index.html",
   "display": "standalone",
   "background_color": "#020fa6",
-  "theme_color": "##4f46e5",
+  "theme_color": "#4f46e5",
   "icons": [
     {
       "src": "icons/icon-48x48.png",
