@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vokabeltrainer - Startseite</title>
     <link href="dist/output.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="manifest" href="/Vokabel-Trainer/manifest.json">
@@ -51,10 +50,33 @@
         .slider-wrapper {
             transition: transform 0.5s ease-in-out;
         }
+
+        /* Neue Stile für die verbesserte Übersichtlichkeit */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-action {
+            transition: all 0.2s ease;
+        }
+
+        .quick-action:hover {
+            transform: scale(1.05);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(79, 70, 229, 0.1) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
     </style>
 </head>
 
-<body class="vokabel-app bg-blue-100">
+<body class="vokabel-app bg-blue-50">
 
     <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50 hidden md:block">
         <div class="container mx-auto flex items-center justify-between px-4 py-3">
@@ -62,9 +84,9 @@
             <nav class="flex space-x-4">
                 <a href="index.html"
                     class="text-amber-400 font-semibold bg-indigo-700 px-3 py-2 rounded-md">Startseite</a>
-                <a href="html/voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
-                <a href="html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Hinzufügen</a>
-                <a href="html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Wörterbuch</a>
+                <a href="/html/voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
+                <a href="/html/hinzufügen.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Hinzufügen</a>
+                <a href="/html/wörterbuch.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Wörterbuch</a>
             </nav>
         </div>
     </header>
@@ -76,17 +98,17 @@
                 <i class="material-icons text-xl">home</i>
                 <span class="text-xs mt-1">Start</span>
             </a>
-            <a href="html/voktestmitids.html"
+            <a href="/html/voktestmitids.html"
                 class="flex flex-1 flex-col items-center justify-center px-2 py-3 text-white hover:bg-indigo-700 transition-colors duration-200">
                 <i class="material-icons text-xl">quiz</i>
                 <span class="text-xs mt-1">Test</span>
             </a>
-            <a href="html/hinzufügen.html"
+            <a href="/html/hinzufügen.html"
                 class="flex flex-1 flex-col items-center justify-center px-2 py-3 text-white hover:bg-indigo-700 transition-colors duration-200">
                 <i class="material-icons text-xl">add_circle_outline</i>
                 <span class="text-xs mt-1">Hinzufügen</span>
             </a>
-            <a href="html/wörterbuch.html"
+            <a href="/html/wörterbuch.html"
                 class="flex flex-1 flex-col items-center justify-center px-2 py-3 text-white hover:bg-indigo-700 transition-colors duration-200">
                 <i class="material-icons text-xl">menu_book</i>
                 <span class="text-xs mt-1">Wörterbuch</span>
@@ -94,30 +116,48 @@
         </div>
     </nav>
 
-    <main class="py-12 md:py-20">
+    <main class="py-8 md:py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col items-center w-full space-y-16">
+            <!-- Hero Section -->
+            <section class="text-center max-w-3xl mx-auto mb-16 animate-fadeInUp">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-slate-800">
+                    MEHR <span
+                        class="bg-gradient-to-r from-sky-500 via-indigo-500 to-teal-400 bg-clip-text text-transparent animate-gradient">VOKABELN</span>.
+                    WENIGER AUFWAND.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 font-normal mt-4 mb-8 leading-relaxed">
+                    Lerne effektiv mit unseren <span class="font-semibold text-indigo-600">modernen</span> Methoden und
+                    meistere jede Sprache mühelos.
+                </p>
 
-                <section class="text-center max-w-3xl animate-fadeInUp">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-slate-800">
-                        MEHR <span
-                            class="bg-gradient-to-r from-sky-500 via-indigo-500 to-teal-400 bg-clip-text text-transparent animate-gradient">VOKABELN</span>.
-                        WENIGER AUFWAND.
-                    </h1>
-                    <p class="text-lg md:text-xl text-slate-600 font-normal mt-4 leading-relaxed">
-                        Lerne effektiv mit unseren <span class="font-semibold text-indigo-600">modernen</span> Methoden.
+            </section>
+            <section class="bg-indigo-600 rounded-2xl p-8 md:p-12 text-center text-white mb-16 animate-fadeInUp"
+                style="animation-delay: 0.3s;">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Bereit, durchzustarten?</h2>
+                <p class="text-lg md:text-xl mb-6 max-w-2xl mx-auto">Beginne jetzt mit dem Vokabeltraining.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="html/hinzufügen.html"
+                        class="quick-action bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg shadow-md border border-indigo-200 hover:bg-indigo-50 flex items-center">
+                        <i class="material-icons mr-2">add_circle_outline</i> Vokabeln hinzufügen
+                    </a>
+                    <a id="installButton"
+                        class="bg-amber-400 text-indigo-800 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-amber-300 transition-colors duration-200">
+                        App installieren
+                    </a>
+                </div>
+            </section>
+
+
+            <!-- Updates Slider Section -->
+            <section class="w-full max-w-4xl mx-auto mb-16 animate-fadeInUp" style="animation-delay: 0.3s;">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Was ist neu?</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                        Unsere neuesten Updates und Funktionen im Überblick.
                     </p>
-                </section>
+                </div>
 
-
-                <section class="w-full max-w-4xl animate-fadeInUp" style="animation-delay: 0.2s;">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4">Was ist neu?</h2>
-                        <p class="text-xl text-slate-600 max-w-3xl mx-auto">
-                            Unsere neuesten Updates und Funktionen im Überblick.
-                        </p>
-                    </div>
-                    <button id="installButton" hidden> 📱 Als App installieren</button>
+                <div class="relative">
                     <div id="slider"
                         class="relative w-full bg-blue-200 rounded-2xl shadow-lg p-4 sm:p-6 border border-blue-300">
                         <div class="overflow-hidden rounded-xl">
@@ -145,12 +185,11 @@
                     </button>
 
 
-            </div>
+                </div>
             </section>
-
-        </div>
         </div>
     </main>
+
     <script type="module" src="JS/startseite/sliderUpdatesgenerier.js"></script>
     <script src="pwaInstallier.js"></script>
 </body>
