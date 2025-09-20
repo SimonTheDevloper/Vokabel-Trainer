@@ -1,7 +1,7 @@
 const mobileNavHTML = `
 <header class="bg-indigo-600 text-white shadow-md sticky top-0 z-50 hidden md:block">
   <div class="container mx-auto flex items-center justify-between px-4 py-3">
-    <span class="text-xl font-bold text-amber-400">Vokabel Trainer</span>
+    <span class="text-xl font-bold text-amber-400">Vocaloop</span>
     <nav class="flex space-x-4">
       <a href="../index.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Startseite</a>
       <a href="voktestmitids.html" class="hover:bg-indigo-700 px-3 py-2 rounded-md">Vokabel-Test</a>
