@@ -1,0 +1,94 @@
+[33m5f254f8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m installier button auf der startseite ist weg nachdem man installiert hat
+[33m0ff0349[m in der navbar oben vocaloop statt vokabeltrainer
+[33m714620b[m startseite navbar korrigiert aussehen
+[33m17a2b8b[m verbesserte featers bei der Abfrage
+[33m6df5be6[m imstallbutton hidden
+[33mcb7291c[m neu startseite idee
+[33m2653aad[m neues Startseiten design
+[33m6e23586[m richtige bottom bar das ,man zu den richtigen links kommt
+[33m791dad3[m fix buttem navbar bei startseite korrigiert
+[33m5e3d050[m starteseite navbar korrigiert
+[33mfda33a8[m richtige startURL beim manifest
+[33m93be6aa[m richtige theme color im manifest reingeschrieben
+[33mfb43d95[m was in den butten reingeschrieben
+[33mf82e14a[m pwa istallier button hinzugefügt
+[33m2e127e4[m anderer theme color
+[33m637b26a[m icons hinzugefügt
+[33m8f5e6d2[m richtige start url
+[33mc6fb1c8[m Workbox hizugefügt
+[33mfbb3196[m Revert "PWA zugänglich machen severworker und icons hinzuefügt"
+[33m5b4313b[m vielleicht fuinbktoniert jetzt PWA
+[33mede052c[m neuer service woker
+[33mdc489d1[m fix PWA sollte wieder funktoniieren
+[33m24efe24[m PWA zugänglich machen severworker und icons hinzuefügt
+[33m0d72411[m favicon hinzugefügt
+[33m2b7c134[m Obere navbar korrigiert, das man zur richtigen seite kommt
+[33m3f85045[m feat: bottem nav bar, die anzeigt auf welcher seite man sich befindet das ist dann makiert
+[33mbdfed2e[m Bottom navbar actuallisiert
+[33md3a8833[m Bottom Navbar bei allen hinzugefügt
+[33m5f3efe4[m butten navbar hinzugefügt
+[33me2c2c23[m vorlesen bei dem slieder intigriert
+[33m497f35e[m slider Dots sind wieder im slider kasten.
+[33m14aabcd[m Update generierer sollte wieder gefunden werden
+[33md0b1bff[m test vercel?
+[33m123bc2b[m fix : slider funktoniert wieder
+[33mceb34ef[m UpdatesObjekte jetzt in einer anderen Datei
+[33m815e811[m Starteseite Updatewrapper wird jetzt automatisch im JS generiert
+[33m72af17f[m Vokabel wird jetzt in der übersetzten sprache vorgelesen, wenn man geantwortet hat.
+[33m167d2c3[m Füge Vokabeln bei falscher Antwort ans Ende der Abfrage hinzu
+[33ma90de7c[m Deaktiviere Button bei leerem Eingabefeld bei der Abfrage
+[33m2cad912[m feedbackantzeige wenn falsch bei abfrage ist jetzt rot
+[33m51546df[m fortschrittanzeige verändert.
+[33ma3409fc[m feedbackanzeigen bei der abfrage sind jetzt richtig, bei richtig / falsch
+[33ma888287[m bei der abfrage neues Feedback alert
+[33m9e25424[m fortschrittsbalken und fortschritt text funktoniert jetzt
+[33m3c50540[m fix: abfrage funktoniert wieder
+[33mc385814[m 1. Frotschritt-Anzeige bei der Abfrage hinzugefügt.  2. Design verbessert (designstyl von hinzufügen.
+[33mf54c72a[m Feedback-Nachricht nach Hinzufügen einer Vokabel anzeigen
+[33m198d168[m : Schalte den Button zum Hinzufügen erst frei, wenn alle Felder gefüllt sind
+[33mcb03bb2[m gefixt das "empty-message" container nur dann da ist wenn keine Vokabeln hinzugefügt wurdem
+[33m5b0b0ca[m slider wieder fuktionell
+[33mc10c6fe[m nas neue menü bei allen dateien Hinzugefügt und eine menü.js datei hinzugefügt wo die UI zum öffnen gemacht wird
+[33m621ab52[m Mobile-Menü schließt bei Klick auf Hintergrund oder wenn man auf das "x" drückt
+[33m36288b5[m bei der der startseite das neuse Update im slider hinzugefügt
+[33m4e34a72[m wieder  gecodet, das wenn du keine vokabeln hinzugefügt hast bei der abfrage wörterbuch leer kasten steht
+[33m9b1bc27[m die richtigen slides bei der startseite hinzugefügt
+[33m226709d[m Update- container auf der Startseite in einen slider gemacht.
+[33mf370def[m bei index.html den dist geändert das es das richtig aus dem oitput css nimmt und so Tailwind CSS angezeigt wird
+[33m37c0ba6[m start seite funktoniert jetzt auch mit Tailwind CSS. In Tailwind config geändert, da es nicht mehr im html ordner ist
+[33m1950535[m menü header hoffentkich jetzt gefixt href jetzt ohne / am anfang und index richtig mit output css gemacht
+[33m0f0e863[m menü header sollte jetzt wieder funktonieren und man gelangt zu den richtigen versionen.
+[33mc506837[m 1. abfrage korrigiert wenn man das beim zweiten durchlauf macht funlttoniert es noch. 2. Menü-header korrigiert das man auf die richtige Datei kommt und kein Eror 404 erscheint.
+[33m623e601[m abfrage UI verbessert. Jetzt ist es der gleiche style, wie bei hinzufügen
+[33m596fc2a[m Html und JS hinzugefügt worin ich Html und CSS datein unterteilt haben. In JS habe ich noch einen abfrage ordner hinzugefügt, worin ich alle JS dateien reingemacht habe, worin alle JS datein sind, die etwas mit der abfrage zu tun habem
+[33mafe8b69[m bei vokabelabfrage abfragebereich zentriert in die mitte
+[33mb730e16[m wörterbuch.html hinzugefügt und geschrieben das es demnächst verfügbar ist und das im header geupdatet
+[33m1acb5cc[m gefixt das man zur richtigen Abfragen datei kommtm wenn man beim header drückt
+[33m5236abd[m startseiten Design verändert und Version geändert
+[33mbac6004[m design von hinzufügenn verändert
+[33mcef4e64[m dist ist jetzt relativ
+[33m9bff7fe[m hoffentlich geht es jetzt mit Tailwind CSS
+[33m389c009[m voktestmitid funktoniert mit JS
+[33mb4a53ba[m Tailwind css intigriert in voktestmitids.html
+[33mae8d61a[m name Vokabeltester zu vokabeltester in package.json
+[33m50c3d75[m Alte Version von vokabeltester.html aus Commit 78ef8d6 wiederhergestellt
+[33m27dad1a[m alte vokabeltester.html version wieder wiederherrgestellt
+[33m2d5d2ca[m node_Modules wieder entfernt aus Git
+[33m898523c[m Tailwind CSS installiert
+[33m78ef8d6[m Vokabe-Abfrage Ui weiter verbssert zB Feedbackanzeige.
+[33mc9a187f[m Vokabel-Abfrage UI verbesserung
+[33m27f695a[m abfrage funktioniert wieder nach aufteilung der Datei
+[33m4796afb[m aufteilung von vokabeltester.js in mehrere dateien
+[33m1a6799f[m paar neue dateien hinzugefügt. noch nicht ganz fertig
+[33m2e6de5b[m bei Abfrage, wenn richtig ist war es davor NICHT grün, wenn es davor nicht rot war. Jetzt passt es
+[33m08f516f[m feedbackanzeige rot wenn antwort falsch ist geändert
+[33m9b2a1de[m antworte-Butten bei zweiten durchlauf nicht zu sehen gefixt. Jetzt ist erst der anworte-Button zu sehen und dann der weiter-Button Das problem behoben.
+[33m582f274[m Design von Hinzufügen geändert. (so wie das design vom Test)
+[33m2eda93a[m abfrageFertigContaier hinzu gefügt. Mit Zurück Button.
+[33mf4ade89[m Button ändert sich bei der Abfrage man kann nur weiter wenn man es Richtig hat
+[33mf92ca8b[m check ob in der Dropbox etwas asgewählt wurde entfernt.
+[33mc4dbdb8[m Dropbox hinzugefügt
+[33mdb2fa78[m wieder im Main
+[33mb4cfc3d[m Meine Änderungen aus detached HEAD
+[33m2b2d66e[m hoffentlich geht das
+[33mc9235db[m Erste Version auf dem. Erste version mit Git Verbunden eigentlich Version 13. Andere versionen auf andere repo

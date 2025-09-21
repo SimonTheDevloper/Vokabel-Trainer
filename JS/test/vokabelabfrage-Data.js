@@ -16,5 +16,16 @@ export function kategorienAbrufen() {
     return [...new Set(alleKategorienMitWiederholungen)];
     // Jetzt haben wir ein Array mit jeder Kategorie genau einmal
 }
+export function checkJSONWörterBuchStatus() {
+    if (Object.keys(vocabList).length == 0) {
+        console.log("Wörter-Buch ist leer");
+        document.getElementById('mainContentContainer').classList.add('hidden');
+        document.getElementById('empty-message').classList.remove('hidden');
 
+    } else {
+        console.log("Wörter-Buch ist NICHT leer!");
+        document.getElementById('mainContentContainer').classList.remove('hidden');
+        document.getElementById('empty-message').classList.add('hidden');
+    }
+}
 
