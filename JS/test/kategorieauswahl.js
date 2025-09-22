@@ -2,6 +2,8 @@ import { kategorienAbrufen } from './vokabelabfrage-Data.js'
 import { dom } from './dom.js';
 
 export let VokabelKategorie = [];
+
+
 export function erstelleDropDown() {
     const alleKategorien = kategorienAbrufen();
     if (alleKategorien.length > 0) {
@@ -17,6 +19,7 @@ export function erstelleDropDown() {
     }
 }
 
+
 export function zurückzuKategorieAuswahl() {
     dom.antwortButton.classList.add('hidden');
     dom.kategorieAuswahlForm.classList.remove('hidden');
@@ -25,7 +28,5 @@ export function zurückzuKategorieAuswahl() {
     dom.testAbschlussBereich.classList.add('hidden');
     dom.FeedbackMessageRichtig.classList.add('hidden');
 
-    // i zurücksetzen
-    i = -1;
-    VokabelKategorie = [];
+    VokabelKategorie.length = 0;
 }

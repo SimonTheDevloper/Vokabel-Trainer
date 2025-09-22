@@ -1,5 +1,5 @@
+import { shuffle } from "./vokabelabfrage-Suffle.js";
 export let vocabList = [];
-
 
 export function ladeVokList() {
     const storedVocabList = localStorage.getItem('vokabelListe');
@@ -28,4 +28,12 @@ export function checkJSONWörterBuchStatus() {
         document.getElementById('empty-message').classList.add('hidden');
     }
 }
+
+export function ladeUndMischeKategorie(ausgewählteKategorie) {
+    let vokabeln = vocabList.filter(entry => entry.category === ausgewählteKategorie);
+    shuffle(vokabeln);
+    return vokabeln;
+}
+
+
 

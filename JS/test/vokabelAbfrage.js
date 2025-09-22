@@ -1,11 +1,14 @@
 import { dom } from './dom.js';
 import { VokabelKategorie } from './kategorieauswahl.js';
+import { vorlesen } from './vokabelAbfrage-Vorlesen.js';
 
 let i = -1;
 let abgefragteEigenschaft = "";
 let LösungEigenschaft = "";
+let vorleseText;
 
 export function zeigeNächsteFrage() {
+    console.log("e")
     i++;
     dom.feedbackAnzeigerichtig.textContent = "";
     dom.eingabeFeld.value = "";
@@ -27,11 +30,13 @@ export function zeigeNächsteFrage() {
             LösungEigenschaft = "translation";
         } else {
             abgefragteEigenschaft = "translation";
-            LösungEigenschaft = "word";
+            LösungEigenschaft = "word"; A
         }
 
         dom.frageAnzeige.textContent =
             `Was ist die Übersetzung von ${VokabelKategorie[i][abgefragteEigenschaft]}?`;
+        console.log(i)
+        console.log("eqwe")
 
     } else {
         // Testende
@@ -41,12 +46,13 @@ export function zeigeNächsteFrage() {
         dom.FeedbackMessageRichtig.classList.add('hidden');
         dom.testAbschlussBereich.classList.remove('hidden');
         dom.buttonBereich.classList.add('hidden');
+        console.log("e")
         i = -1;
-        VokabelKategorie = [];
+        VokabelKategorie.length = 0;
     }
 }
 
-export function fortschrittanzeigeUpdata() { //////////////////////////////////////////////////// STOPP !! Erst weiter machen schaue in Chrome console da stehet problem//////////
+export function fortschrittanzeigeUpdata() {
     if (VokabelKategorie.length > 0) {
         const fortschrittProzent = ((i + 1) / VokabelKategorie.length) * 100;
         dom.fortschrittText.textContent = `${i + 1} von ${VokabelKategorie.length}`;
@@ -56,6 +62,14 @@ export function fortschrittanzeigeUpdata() { ///////////////////////////////////
         dom.fortschrittText.textContent = '0 von 0';
     }
 };
+
+function testeObFeldVollIst() {
+    dom.antwortButton.disabled = true;
+    dom.eingabeFeld.addEventListener('input', () => {
+        const eigabeFeldVoll = eingabeFeld.value.trim() !== '';
+        dom.antwortButton.disabled = !eigabeFeldVoll;
+    });
+}
 
 export function überprüfeAntwort() {
     const benutzerAntwort = dom.eingabeFeld.value.trim();
