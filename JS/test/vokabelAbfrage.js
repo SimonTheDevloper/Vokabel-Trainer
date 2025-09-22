@@ -93,3 +93,24 @@ export function überprüfeAntwort() {
         VokabelKategorie.push(VokabelKategorie[i]);
     }
 }
+
+function zeigeFeedback(richtig, richtigeAntwort) {
+
+    if (richtig) {
+        dom.feedbackAnzeigerichtig.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
+        dom.feedbackMessageFalsch.classList.add('hidden');
+        dom.feedbackAnzeigerichtig.classList.remove('hidden');
+    }
+    else {
+        console.log(VokabelKategorie[i])
+        dom.feedbackMessageFalsch.classList.remove('hidden');
+        dom.feedbackAnzeigerichtig.classList.add('hidden')
+        dom.feedbacktextFalsch.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
+        dom.feedbackMessageFalsch.classList.remove('-translate-y-full');
+
+        setTimeout(() => {
+            dom.feedbackMessageFalsch.classList.add('-translate-y-full');
+        }, 3000);
+    }
+
+};
