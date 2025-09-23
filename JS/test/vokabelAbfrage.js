@@ -66,7 +66,7 @@ export function fortschrittanzeigeUpdata() {
 function testeObFeldVollIst() {
     dom.antwortButton.disabled = true;
     dom.eingabeFeld.addEventListener('input', () => {
-        const eigabeFeldVoll = eingabeFeld.value.trim() !== '';
+        const eigabeFeldVoll = dom.eingabeFeld.value.trim() !== '';
         dom.antwortButton.disabled = !eigabeFeldVoll;
     });
 }
