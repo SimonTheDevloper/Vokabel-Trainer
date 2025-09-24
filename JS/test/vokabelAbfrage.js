@@ -13,7 +13,7 @@ export function zeigeNächsteFrage() {
     dom.feedbackAnzeigerichtig.textContent = "";
     dom.eingabeFeld.value = "";
     fortschrittanzeigeUpdata();
-    testeObFeldVollIst();
+    testeObFeldVollIst(); s
 
     dom.FeedbackMessageRichtig.classList.add('hidden');
     dom.vokabelAbfrageInput.classList.remove('hidden');
@@ -30,7 +30,7 @@ export function zeigeNächsteFrage() {
             LösungEigenschaft = "translation";
         } else {
             abgefragteEigenschaft = "translation";
-            LösungEigenschaft = "word"; A
+            LösungEigenschaft = "word";
         }
 
         dom.frageAnzeige.textContent =
