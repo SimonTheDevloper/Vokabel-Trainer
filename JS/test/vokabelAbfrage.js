@@ -1,6 +1,6 @@
 import { dom, } from './dom.js';
 import { VokabelKategorie } from './kategorieauswahl.js';
-import { sichtbarkeitUIStatus } from './sichtbarkeitKoordinator.js';
+import { sichtbarkeitUIStatus, verstecke } from './sichtbarkeitKoordinator.js';
 import { vorlesen } from './vokabelAbfrage-Vorlesen.js';
 
 
@@ -31,7 +31,9 @@ export function zeigeNächsteFrage() {
             LösungEigenschaft = "word";
         }
         if (VokabelKategorie[i].zuvorFalsch === true) {
-            zeige()
+            zeige(dom.fehlerTag)
+        } else {
+            verstecke(dom.fehlerTag)
         }
         dom.frageAnzeige.textContent =
             `Was ist die Übersetzung von ${VokabelKategorie[i][abgefragteEigenschaft]}?`;

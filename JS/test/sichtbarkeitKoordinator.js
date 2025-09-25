@@ -5,7 +5,7 @@ export function zeige(element) {
 };
 
 export function verstecke(element) {
-    element.classList.ad('hidden')
+    element.classList.add('hidden')
 };
 
 export function sichtbarkeitUIStatus(status) {
@@ -39,8 +39,6 @@ export function sichtbarkeitUIStatus(status) {
         case 'testEnde':
             dom.testAbschlussBereich.classList.remove('hidden');
             break;
-        case 'fehlerTag':
-            dom.fehlerTag.classList.remove('hiddem')
         default:
             // Standardmäßig die Kategorieauswahl anzeigen
             dom.kategorieAuswahlForm.classList.remove('hidden');
