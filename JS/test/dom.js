@@ -17,10 +17,10 @@ export const dom = {
     vorleseText: null,
     fortschrittText: null,
     fortschrittbar: null,
+    fehlerTag: null,
 
 };
 
-// Initialisierung
 export function initDom() {
     dom.frageAnzeige = document.getElementById('frageAnzeige');
     dom.eingabeFeld = document.getElementById('eingabeFeld');
@@ -39,5 +39,6 @@ export function initDom() {
     dom.feedbacktextFalsch = document.getElementById('feedbacktextFalsch');
     dom.fortschrittText = document.getElementById("progressText");
     dom.fortschrittbar = document.getElementById("progressBar");
+    dom.fehlerTag = document.getElementById('fehlerTag')
 
 }

@@ -30,7 +30,9 @@ export function zeigeNächsteFrage() {
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
-
+        if (VokabelKategorie[i].zuvorFalsch === true) {
+            zeige()
+        }
         dom.frageAnzeige.textContent =
             `Was ist die Übersetzung von ${VokabelKategorie[i][abgefragteEigenschaft]}?`;
         console.log(i)
@@ -80,6 +82,7 @@ export function überprüfeAntwort() {
     } else {
         sichtbarkeitUIStatus('antwortFalsch');
         zeigeFeedback(false, richtigeAntwort);
+        VokabelKategorie[i].zuvorFalsch = true;
         VokabelKategorie.push(VokabelKategorie[i]);
     }
 }
