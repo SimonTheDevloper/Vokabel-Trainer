@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             word: deutschesWort,
             translation: englischesWort,
             category: kategorie,
+            zuvorFalsch: false,
         };
         // Hier wird ein neues JavaScript-Objekt namens 'neueVokabel' erstellt.
         // Dieses Objekt hat Schlüssel ('word', 'translation', 'category', 'note', 'favorite')

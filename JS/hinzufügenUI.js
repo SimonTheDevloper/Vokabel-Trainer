@@ -25,10 +25,8 @@ inputFields.forEach(input => {
 });
 
 export function zeigeFeedback() {
-    // Slide in
     feedbackMessage.classList.remove('-translate-y-full');
 
-    // Slide out after 3 seconds
     setTimeout(() => {
         feedbackMessage.classList.add('-translate-y-full');
     }, 3000);
