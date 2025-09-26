@@ -8,6 +8,7 @@ let i = -1;
 let abgefragteEigenschaft = "";
 let LösungEigenschaft = "";
 let vorleseText;
+let schonMinEinmalGeantwortet = false;
 
 
 export function zeigeNächsteFrage() {
@@ -86,8 +87,15 @@ export function überprüfeAntwort() {
         sichtbarkeitUIStatus('antwortFalsch');
         zeigeFeedback(false, richtigeAntwort);
         VokabelKategorie[i].zuvorFalsch = true;
-        VokabelKategorie.push(VokabelKategorie[i]);
+        if (!schonMinEinmalGeantwortet) {
+            VokabelKategorie.push(VokabelKategorie[i]);
+        } else {
+            console.log("wurde schon min. einmal falsch geantwortet.")
+        }
+
+
     }
+    schonMinEinmalGeantwortet = true;
 }
 
 function zeigeFeedback(richtig, richtigeAntwort) {
