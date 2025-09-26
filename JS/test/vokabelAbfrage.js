@@ -1,6 +1,6 @@
 import { dom, } from './dom.js';
 import { VokabelKategorie } from './kategorieauswahl.js';
-import { sichtbarkeitUIStatus, verstecke } from './sichtbarkeitKoordinator.js';
+import { sichtbarkeitUIStatus, verstecke, zeige } from './sichtbarkeitKoordinator.js';
 import { vorlesen } from './vokabelAbfrage-Vorlesen.js';
 
 
@@ -31,7 +31,7 @@ export function zeigeNächsteFrage() {
             LösungEigenschaft = "word";
         }
         if (VokabelKategorie[i].zuvorFalsch === true) {
-            zeige(dom.fehlerTag)
+            zeige(dom.fehlerTag);
         } else {
             verstecke(dom.fehlerTag)
         }
@@ -43,7 +43,8 @@ export function zeigeNächsteFrage() {
     } else {
         // Testende
         sichtbarkeitUIStatus('testEnde');
-        dom.buttonBereich.classList.add('hidden');
+        verstecke(dom.buttonBereich);
+
         console.log("e")
         i = -1;
         VokabelKategorie.length = 0;
