@@ -263,10 +263,25 @@
                             <path stroke-linecap="round" stroke-linejoin-round stroke-width="2.5" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
+                    <div id="slider-banner"
+                        class="absolute inset-0 z-10 flex items-center justify-center backdrop-blur-sm rounded-2xl">
+                        <div
+                            class="text-center glass-effect rounded-xl p-6 border border-amber-300 shadow-lg mx-4 max-w-sm">
+                            <div class="flex items-center justify-center gap-3 mb-3">
+                                <i class="material-icons text-amber-500 text-2xl">info</i>
+                                <h3 class="text-xl font-bold text-slate-800">Zuzeit nicht mehr Aktuell!!!</h3>
+                            </div>
+                            <button id="close-slider-banner"
+                                class="bg-amber-400 text-slate-800 hover:bg-amber-300 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-sm">
+                                Verstanden
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </main>
+    <script src="/JS/startseite/bannerSchließen.js"></script>
     <script type="module" src="JS/startseite/sliderUpdatesgenerier.js"></script>
     <script src="pwaInstallier.js"></script>
 </body>
