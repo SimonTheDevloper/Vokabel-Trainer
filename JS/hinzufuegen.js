@@ -1,6 +1,6 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
 let vocabList;
-vocabList = JSON.parse(localStorage.getItem('vokabelListe')) || [];
+vocabList = JSON.parse(localStorage.getItem('vokabelListe')) || {};
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,20 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         event.preventDefault();
         const deutschesWort = document.getElementById('deutschesWort').value.trim();
-        const englischesWort = document.getElementById('englischesWort').value.trim();
+        const fremdSpracheWort = document.getElementById('englischesWort').value.trim();
         const kategorie = document.getElementById('kategorie').value.trim();
 
         // Neues Vokabelobjekt erstellen
         const neueVokabel = {
-            word: deutschesWort,
-            translation: englischesWort,
-            category: kategorie,
-            zuvorFalsch: false,
+            wort: deutschesWort.trim(),
+            fremdsprache: fremdSpracheWort.trim()
         };
 
-        vocabList.push(neueVokabel);
+        if (!vocabList[kategorie]) {
+            // Falls nicht, erstellen  ein neues leeres Array für diese Kategorie.
+            vocabList[kategorie] = [];
+        }
+        // Objekt wird in das zugehörige Katgegorie objekt gepushed
+        vocabList[kategorie].push(neueVokabel);
+        console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);
 
-        console.log(`Vokabel "${deutschesWort} - ${englischesWort}" wurde hinzugefügt.`);
+
+
         zeigeFeedback();
         addVocabForm.reset();
 
