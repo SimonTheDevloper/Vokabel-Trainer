@@ -1,8 +1,11 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
-let vocabList;
-vocabList = JSON.parse(localStorage.getItem('vokabelListe')) || {};
+import { erstelleDropDown } from './test/kategorieauswahl.js';
+import { getVocabList, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    erstelleDropDown();
+    ladeVokList();
+
 
     const addVocabForm = document.getElementById('addVocabForm');
     addVocabForm.addEventListener('submit', function (event) {
@@ -18,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fremdsprache: fremdSpracheWort.trim()
         };
 
+        const vocabList = getVocabList();
         if (!vocabList[kategorie]) {
             // Falls nicht, erstellen  ein neues leeres Array für diese Kategorie.
             vocabList[kategorie] = [];
@@ -27,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);
 
 
+        speichereVokabelListe();
 
         zeigeFeedback();
         addVocabForm.reset();
 
-        localStorage.setItem('vokabelListe', JSON.stringify(vocabList));
 
         console.log("Aktualisierte Vokabelliste:", vocabList);
     });

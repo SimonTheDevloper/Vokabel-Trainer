@@ -1,5 +1,6 @@
 import { shuffle } from "./vokabelabfrage-Suffle.js";
-export let vocabList = [];
+
+export let vocabList = {};
 
 export function ladeVokList() {
     const storedVocabList = localStorage.getItem('vokabelListe');
@@ -7,21 +8,19 @@ export function ladeVokList() {
         vocabList = JSON.parse(storedVocabList);
         console.log("Vokabelliste aus localStorage geladen:", vocabList);
     } else {
-        console.log("Keine Vokabelliste im localStorage gefunden. Starte mit einer leeren Liste.");
+        console.log("Keine Vokabelliste im localStorage gefunden.");
     }
 }
 
 export function kategorienAbrufen() {
-    const alleKategorienMitWiederholungen = vocabList.map(eintrag => eintrag.category);
-    return [...new Set(alleKategorienMitWiederholungen)];
-    // Jetzt haben wir ein Array mit jeder Kategorie genau einmal
+    return Object.keys(vocabList);
 }
+
 export function checkJSONWörterBuchStatus() {
-    if (Object.keys(vocabList).length == 0) {
+    if (Object.keys(vocabList).length === 0) {
         console.log("Wörter-Buch ist leer");
         document.getElementById('mainContentContainer').classList.add('hidden');
         document.getElementById('empty-message').classList.remove('hidden');
-
     } else {
         console.log("Wörter-Buch ist NICHT leer!");
         document.getElementById('mainContentContainer').classList.remove('hidden');
@@ -30,10 +29,17 @@ export function checkJSONWörterBuchStatus() {
 }
 
 export function ladeUndMischeKategorie(ausgewählteKategorie) {
-    let vokabeln = vocabList.filter(entry => entry.category === ausgewählteKategorie);
+    const vokabeln = vocabList[ausgewählteKategorie] || [];
     shuffle(vokabeln);
     return vokabeln;
 }
+export function speichereVokabelListe() {
+    localStorage.setItem('vokabelListe', JSON.stringify(vocabList));
+    console.log("Vokabelliste gespeichert:", vocabList);
+    console.log("So sieht's im localStorage aus:", localStorage.getItem('vokabelListe'));
+}
 
 
-
+export function getVocabList() {
+    return vocabList;
+}
