@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dom.vokabelAbfrageInput.classList.remove('hidden');
         dom.buttonBereich.classList.remove('hidden');
 
-        // Achtung: VokabelKategorie ist ein importiertes "let" → du kannst es nicht neu deklarieren, nur überschreiben:
         VokabelKategorie.length = 0;
         VokabelKategorie.push(...ladeUndMischeKategorie(ausgewählteKategorie));
         console.log(VokabelKategorie);

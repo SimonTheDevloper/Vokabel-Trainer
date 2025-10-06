@@ -12,9 +12,10 @@ const addVocabForm = document.getElementById('addVocabForm');
 addVocabForm.addEventListener('submit', function (event) {
 
     event.preventDefault();
+    const alleKategorien = kategorienAbrufen();
+    const kategorie = alleKategorien[dom.kategorieselect.selectedIndex];
     const deutschesWort = document.getElementById('deutschesWort').value.trim();
     const fremdSpracheWort = document.getElementById('englischesWort').value.trim();
-    const kategorie = document.getElementById('kategorie').value.trim();
 
     // Neues Vokabelobjekt erstellen
     const neueVokabel = {
