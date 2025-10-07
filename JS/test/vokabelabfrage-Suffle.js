@@ -4,4 +4,6 @@ export function shuffle(array) {
         const r = Math.floor(Math.random() * (i + 1));
         [array[i], array[r]] = [array[r], array[i]];
     }
+    console.log("geshufelt")
+    return array
 }

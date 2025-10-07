@@ -1,7 +1,5 @@
-import { kategorienAbrufen } from './vokabelabfrage-Data.js'
+import { aktuellVokObjekt, kategorienAbrufen } from './vokabelabfrage-Data.js'
 import { dom } from './dom.js';
-
-export let VokabelKategorie = [];
 
 
 export function erstelleDropDown() {
@@ -28,5 +26,5 @@ export function zurückzuKategorieAuswahl() {
     dom.testAbschlussBereich.classList.add('hidden');
     dom.FeedbackMessageRichtig.classList.add('hidden');
 
-    VokabelKategorie.length = 0;
+    aktuellVokObjekt.length = 0;
 }

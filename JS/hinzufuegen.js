@@ -34,10 +34,6 @@ addVocabForm.addEventListener('submit', function (event) {
     };
 
     const vocabList = getVocabList();
-    if (!vocabList[kategorie]) {
-        // Falls nicht, erstellen  ein neues leeres Array für diese Kategorie.
-        vocabList[kategorie] = [];
-    }
     // Objekt wird in das zugehörige Katgegorie objekt gepushed
     vocabList[kategorie].push(neueVokabel);
     console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);

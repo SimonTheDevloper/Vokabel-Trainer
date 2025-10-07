@@ -1,6 +1,7 @@
 import { shuffle } from "./vokabelabfrage-Suffle.js";
 
 export let vocabList = {};
+export let aktuellVokObjekt = [];
 
 export function ladeVokList() {
     const storedVocabList = localStorage.getItem('vokabelListe');
@@ -43,3 +44,13 @@ export function speichereVokabelListe() {
 export function getVocabList() {
     return vocabList;
 }
+export function getObjekteAusUnits(gewählteUnits) {
+    aktuellVokObjekt = Object.values(
+        Object.fromEntries(
+            Object.entries(vocabList).filter(([key]) => gewählteUnits.includes(key))
+        )
+    ).flat()
+    console.log("aktuellVokObjekt ist ");
+    console.log(aktuellVokObjekt);
+}
+

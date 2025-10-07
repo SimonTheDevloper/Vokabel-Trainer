@@ -1,6 +1,6 @@
 import { dom, } from './dom.js';
-import { VokabelKategorie } from './kategorieauswahl.js';
 import { sichtbarkeitUIStatus, verstecke, zeige } from './sichtbarkeitKoordinator.js';
+import { aktuellVokObjekt } from './vokabelabfrage-Data.js';
 import { vorlesen } from './vokabelAbfrage-Vorlesen.js';
 
 
@@ -10,7 +10,6 @@ let LösungEigenschaft = "";
 let vorleseText;
 let minEinmalFalsch = false;
 
-
 export function zeigeNächsteFrage() {
     i++;
     dom.feedbackAnzeigerichtig.textContent = "";
@@ -19,7 +18,7 @@ export function zeigeNächsteFrage() {
     testeObFeldVollIst();
     minEinmalFalsch = false;
 
-    if (i < VokabelKategorie.length) {
+    if (i < aktuellVokObjekt.length) {
         sichtbarkeitUIStatus('frage');
         let WordNachÜbersetzung = true;
         dom.eingabeFeld.focus();
@@ -31,13 +30,13 @@ export function zeigeNächsteFrage() {
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
-        if (VokabelKategorie[i].zuvorFalsch === true) {
+        if (aktuellVokObjekt[i].zuvorFalsch === true) {
             zeige(dom.fehlerTag);
         } else {
             verstecke(dom.fehlerTag)
         }
         dom.frageAnzeige.textContent =
-            `Was ist die Übersetzung von ${VokabelKategorie[i][abgefragteEigenschaft]}?`;
+            `Was ist die Übersetzung von ${aktuellVokObjekt[i][abgefragteEigenschaft]}?`;
         console.log(i)
 
     } else {
@@ -45,16 +44,16 @@ export function zeigeNächsteFrage() {
         sichtbarkeitUIStatus('testEnde');
         verstecke(dom.buttonBereich);
 
-        console.log("e")
+        console.log("Testende")
         i = -1;
-        VokabelKategorie.length = 0;
+        aktuellVokObjekt.length = 0;
     }
 }
 
 export function fortschrittanzeigeUpdata() {
-    if (VokabelKategorie.length > 0) {
-        const fortschrittProzent = ((i + 1) / VokabelKategorie.length) * 100;
-        dom.fortschrittText.textContent = `${i + 1} von ${VokabelKategorie.length}`;
+    if (aktuellVokObjekt.length > 0) {
+        const fortschrittProzent = ((i + 1) / aktuellVokObjekt.length) * 100;
+        dom.fortschrittText.textContent = `${i + 1} von ${aktuellVokObjekt.length}`;
         dom.fortschrittbar.style.width = `${fortschrittProzent}%`;
     } else {
         dom.fortschrittbar.style.width = '0%';
@@ -72,7 +71,7 @@ function testeObFeldVollIst() {
 
 export function überprüfeAntwort() {
     const benutzerAntwort = dom.eingabeFeld.value.trim();
-    let richtigeAntwort = VokabelKategorie[i][LösungEigenschaft];
+    let richtigeAntwort = aktuellVokObjekt[i][LösungEigenschaft];
 
     vorleseText = richtigeAntwort;
     vorlesen(vorleseText);
@@ -84,12 +83,12 @@ export function überprüfeAntwort() {
         sichtbarkeitUIStatus('antwortRichtig');
         zeigeFeedback(true, richtigeAntwort);
         if (minEinmalFalsch) {
-            VokabelKategorie.push(VokabelKategorie[i]);
+            aktuellVokObjekt.push(aktuellVokObjekt[i]);
         }
     } else {
         sichtbarkeitUIStatus('antwortFalsch');
         zeigeFeedback(false, richtigeAntwort);
-        VokabelKategorie[i].zuvorFalsch = true;
+        aktuellVokObjekt[i].zuvorFalsch = true;
         minEinmalFalsch = true;
 
     }
@@ -101,7 +100,7 @@ function zeigeFeedback(richtig, richtigeAntwort) {
         dom.feedbackAnzeigerichtig.textContent = `Richtig! Die Antwort ist: ${richtigeAntwort}`;
     }
     else {
-        console.log(VokabelKategorie[i])
+        console.log(aktuellVokObjekt[i])
         dom.feedbacktextFalsch.textContent = `Falsch! Richtige Antwort: ${richtigeAntwort}`;
         dom.feedbackMessageFalsch.classList.remove('-translate-y-full');
 
