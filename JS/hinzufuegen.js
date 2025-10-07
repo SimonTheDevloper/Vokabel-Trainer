@@ -1,7 +1,7 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
 import { erstelleDropDown } from './test/kategorieauswahl.js';
 import { getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
-console.log("Bitte beide Felder ausfüllen!");
+let kategorie;
 document.addEventListener('DOMContentLoaded', () => {
     ladeVokList();
     erstelleDropDown();
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         event.preventDefault();
         const alleKategorien = kategorienAbrufen();
-        const kategorie = alleKategorien[kategorieselect.selectedIndex];
+        kategorie = alleKategorien[kategorieselect.selectedIndex];
         console.log(kategorie);
         auswahl.classList.add('hidden');
         addVocabForm.classList.remove('hidden')
@@ -23,8 +23,6 @@ const addVocabForm = document.getElementById('addVocabForm');
 addVocabForm.addEventListener('submit', function (event) {
 
     event.preventDefault();
-    const alleKategorien = kategorienAbrufen();
-    const kategorie = alleKategorien[dom.kategorieselect.selectedIndex];
     console.log(kategorie);
     const deutschesWort = document.getElementById('deutschesWort').value.trim();
     const fremdSpracheWort = document.getElementById('englischesWort').value.trim();
