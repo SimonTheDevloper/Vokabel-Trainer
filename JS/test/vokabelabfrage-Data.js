@@ -45,12 +45,19 @@ export function getVocabList() {
     return vocabList;
 }
 export function getObjekteAusUnits(gewählteUnits) {
-    aktuellVokObjekt = Object.values(
+    return Object.values(
         Object.fromEntries(
             Object.entries(vocabList).filter(([key]) => gewählteUnits.includes(key))
         )
     ).flat()
-    console.log("aktuellVokObjekt ist ");
-    console.log(aktuellVokObjekt);
-}
+    //console.log("aktuellVokObjekt ist ");
+    //console.log(aktuellVokObjekt);
 
+}
+export function setAndShuffleVokabeln(vokabelnArray) {
+    // 1. Tiefe Kopie erstellen (oder Sie übergeben die Kopie bereits)
+    const vokabelnZurVerarbeitung = structuredClone(vokabelnArray);
+
+    // 2. Hier erfolgt die Zuweisung, wo die Variable als 'let' bekannt ist!
+    aktuellVokObjekt = shuffle(vokabelnZurVerarbeitung);
+}

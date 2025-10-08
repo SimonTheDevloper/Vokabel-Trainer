@@ -1,4 +1,4 @@
-import { ladeVokList, checkJSONWörterBuchStatus, kategorienAbrufen, ladeUndMischeKategorie, getObjekteAusUnits, aktuellVokObjekt } from './vokabelabfrage-Data.js'
+import { ladeVokList, checkJSONWörterBuchStatus, kategorienAbrufen, ladeUndMischeKategorie, getObjekteAusUnits, aktuellVokObjekt, setAndShuffleVokabeln } from './vokabelabfrage-Data.js'
 import { dom, initDom } from './dom.js';
 import { erstelleDropDown, zurückzuKategorieAuswahl } from './kategorieauswahl.js'
 import { zeigeNächsteFrage, überprüfeAntwort } from './vokabelAbfrage.js';
@@ -24,10 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dom.vokabelAbfrageInput.classList.remove('hidden');
         dom.buttonBereich.classList.remove('hidden');
 
-        getObjekteAusUnits(ausgewählteKategorie);
+        const kategorienObjekte = getObjekteAusUnits(ausgewählteKategorie);
 
-        console.log(aktuellVokObjekt);
-        shuffle(aktuellVokObjekt);
+        console.log(kategorienObjekte);
+        setAndShuffleVokabeln(kategorienObjekte)
+
         console.log(aktuellVokObjekt);
 
         zeigeNächsteFrage();
