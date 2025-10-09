@@ -50,8 +50,7 @@ export function getObjekteAusUnits(gewählteUnits) {
             Object.entries(vocabList).filter(([key]) => gewählteUnits.includes(key))
         )
     ).flat()
-    //console.log("aktuellVokObjekt ist ");
-    //console.log(aktuellVokObjekt);
+
 
 }
 export function setAndShuffleVokabeln(vokabelnArray) {
@@ -60,4 +59,7 @@ export function setAndShuffleVokabeln(vokabelnArray) {
 
     // 2. Hier erfolgt die Zuweisung, wo die Variable als 'let' bekannt ist!
     aktuellVokObjekt = shuffle(vokabelnZurVerarbeitung);
+}
+export function getAktuelleVokabel(eigenschaftName, aktuellerIndex) {
+    return aktuellVokObjekt[aktuellerIndex][eigenschaftName];
 }

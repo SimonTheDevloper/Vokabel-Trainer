@@ -1,6 +1,6 @@
 import { dom, } from './dom.js';
 import { sichtbarkeitUIStatus, verstecke, zeige } from './sichtbarkeitKoordinator.js';
-import { aktuellVokObjekt } from './vokabelabfrage-Data.js';
+import { aktuellVokObjekt, getAktuelleVokabel } from './vokabelabfrage-Data.js';
 import { vorlesen } from './vokabelAbfrage-Vorlesen.js';
 
 
@@ -9,6 +9,8 @@ let abgefragteEigenschaft = "";
 let LösungEigenschaft = "";
 let vorleseText;
 let minEinmalFalsch = false;
+let aktuellesVokWort;
+let aktuellVokFremdWort;
 
 export function zeigeNächsteFrage() {
     i++;
@@ -25,8 +27,13 @@ export function zeigeNächsteFrage() {
 
         if (WordNachÜbersetzung) {
             abgefragteEigenschaft = "word";
+            aktuellesVokWort = getAktuelleVokabel("wort", i);
+            aktuellVokFremdWort = getAktuelleVokabel("fremdsprache", i)
+            console.warn(aktuellesVokWort);
             LösungEigenschaft = "translation";
         } else {
+            aktuellesVokWort = getAktuelleVokabel("wort", i);
+            aktuellVokFremdWort = getAktuelleVokabel("fremdsprache", i);
             abgefragteEigenschaft = "translation";
             LösungEigenschaft = "word";
         }
@@ -36,7 +43,7 @@ export function zeigeNächsteFrage() {
             verstecke(dom.fehlerTag)
         }
         dom.frageAnzeige.textContent =
-            `Was ist die Übersetzung von ${aktuellVokObjekt[i][abgefragteEigenschaft]}?`;
+            `Was ist die Übersetzung von ${aktuellesVokWort}?`;
         console.log(i)
 
     } else {
@@ -71,7 +78,7 @@ function testeObFeldVollIst() {
 
 export function überprüfeAntwort() {
     const benutzerAntwort = dom.eingabeFeld.value.trim();
-    let richtigeAntwort = aktuellVokObjekt[i][LösungEigenschaft];
+    let richtigeAntwort = aktuellVokFremdWort;
 
     vorleseText = richtigeAntwort;
     vorlesen(vorleseText);

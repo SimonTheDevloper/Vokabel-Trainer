@@ -39,6 +39,6 @@ export function initDom() {
     dom.feedbacktextFalsch = document.getElementById('feedbacktextFalsch');
     dom.fortschrittText = document.getElementById("progressText");
     dom.fortschrittbar = document.getElementById("progressBar");
-    dom.fehlerTag = document.getElementById('fehlerTag')
+    dom.fehlerTag = document.getElementById('fehlerTag');
 
 }
