@@ -1,8 +1,15 @@
 export const updates = [
     {
+        "version": "3.6.0",
+        "versionColor": "blue",
+        "isNew": true,
+        "title": "Kategorie bei der Abfrage und beim Hinzufügen ",
+        "description": "Wenn man bei der Abfrage beginnen will oder beim Hinzufügen, muss man erst die zugehörige Kategorie auswählen",
+        "tags": ["Vorlesen", "Feature", "Abfrage"]
+    }, {
         "version": "3.5.0",
         "versionColor": "yellow",
-        "isNew": true,
+        "isNew": false,
         "title": "Vorlese-Funktion hinzugefügt",
         "description": "Wenn man bei der Abfrage geantwortet hat, wird die übersetztung vorgelesen",
         "tags": ["Vorlesen", "Feature", "Abfrage"]
