@@ -13,10 +13,23 @@ export function ladeVokList() {
     }
 }
 
+//export let allkategorienArray = [];
+
+// zurzeit ned benötigt 
 export function kategorienAbrufen() {
     return Object.keys(vocabList);
 }
 
+/*export function kategorienAbrufen() {
+    const gespeicherteKategorien = JSON.parse(localStorage.getItem('allkategorienArray'));
+    if (gespeicherteKategorien) allkategorienArray = gespeicherteKategorien;
+    return allkategorienArray;
+}*/
+
+// Kategorie speichern
+export function speichereKategorien() {
+    localStorage.setItem('allkategorienArray', JSON.stringify(allkategorienArray));
+}
 export function checkJSONWörterBuchStatus() {
     if (Object.keys(vocabList).length === 0) {
         console.log("Wörter-Buch ist leer");

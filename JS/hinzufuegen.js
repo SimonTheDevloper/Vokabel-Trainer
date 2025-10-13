@@ -33,30 +33,45 @@ document.addEventListener('DOMContentLoaded', () => {
         auswahl.classList.add('hidden');
         addVocabForm.classList.remove('hidden');
     }
+    addVocabForm.addEventListener('submit', function (event) {
+
+        event.preventDefault();
+        console.log(kategorie);
+        const deutschesWort = document.getElementById('deutschesWort').value.trim();
+        const fremdSpracheWort = document.getElementById('englischesWort').value.trim();
+
+        // Neues Vokabelobjekt erstellen
+        const neueVokabel = {
+            wort: deutschesWort.trim(),
+            fremdsprache: fremdSpracheWort.trim()
+        };
+
+        const vocabList = getVocabList();
+        // Objekt wird in das zugehörige Katgegorie objekt gepushed
+        vocabList[kategorie].push(neueVokabel);
+        console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);
+
+        speichereVokabelListe();
+
+        zeigeFeedback();
+        addVocabForm.reset();
+
+        console.log("Aktualisierte Vokabelliste:", vocabList);
+    });
+
+    addKategorieForm.addEventListener('submit', function (event) {
+
+        event.preventDefault();
+
+        const kategorieInput = document.getElementById('kategorieName')
+        const vokabeln = getVocabList();
+        vokabeln[kategorieInput] = [];
+        speichereVokabelListe();
+        /*vokabeln[kategorieInput] = [];
+        speichereVokabelListe();*/
+        console.log(vokabeln);
+
+    });
 });
-addVocabForm.addEventListener('submit', function (event) {
 
-    event.preventDefault();
-    console.log(kategorie);
-    const deutschesWort = document.getElementById('deutschesWort').value.trim();
-    const fremdSpracheWort = document.getElementById('englischesWort').value.trim();
-
-    // Neues Vokabelobjekt erstellen
-    const neueVokabel = {
-        wort: deutschesWort.trim(),
-        fremdsprache: fremdSpracheWort.trim()
-    };
-
-    const vocabList = getVocabList();
-    // Objekt wird in das zugehörige Katgegorie objekt gepushed
-    vocabList[kategorie].push(neueVokabel);
-    console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);
-
-    speichereVokabelListe();
-
-    zeigeFeedback();
-    addVocabForm.reset();
-
-    console.log("Aktualisierte Vokabelliste:", vocabList);
-});
 
