@@ -1,25 +1,39 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
 import { erstelleDropDown } from './test/kategorieauswahl.js';
-import { getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
+import { checkJSONWörterBuchStatus, getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
+
 let kategorie;
+
 document.addEventListener('DOMContentLoaded', () => {
     ladeVokList();
     erstelleDropDown();
     const auswahl = document.getElementById('kategorieAuswahl');
     const kategorieselect = document.getElementById('testSelection');
+    const zeigeVokFormButton = document.getElementById('weiterZuVokeingabe');
     const addVocabForm = document.getElementById('addVocabForm')
-    auswahl.addEventListener('submit', function (event) {
+    const addKategorieFormButton = document.getElementById('neueKategorieButton');
+    const addKategorieForm = document.getElementById('neueKategorieForm');
 
-        event.preventDefault();
+    addKategorieFormButton.addEventListener('click', zeigeNewKategorieForm);
+    zeigeVokFormButton.addEventListener('click', zeigeNewVokForm)
+
+    function zeigeNewKategorieForm() {
+        console.log('Kategorieformular anzeigen');
+        auswahl.classList.add('hidden');
+        addVocabForm.classList.add('hidden')
+        addKategorieForm.classList.remove('hidden');
+    }
+
+    function zeigeNewVokForm() {
+        console.log('Vokabeleingabeformular anzeigen');
         const alleKategorien = kategorienAbrufen();
         kategorie = alleKategorien[kategorieselect.selectedIndex];
-        console.log(kategorie);
-        auswahl.classList.add('hidden');
-        addVocabForm.classList.remove('hidden')
+        console.log('Ausgewählte Kategorie:', kategorie);
 
-    })
+        auswahl.classList.add('hidden');
+        addVocabForm.classList.remove('hidden');
+    }
 });
-const addVocabForm = document.getElementById('addVocabForm');
 addVocabForm.addEventListener('submit', function (event) {
 
     event.preventDefault();
@@ -38,12 +52,11 @@ addVocabForm.addEventListener('submit', function (event) {
     vocabList[kategorie].push(neueVokabel);
     console.log(`Vokabel '${deutschesWort}' zu Kategorie '${kategorie}' hinzugefügt.`);
 
-
     speichereVokabelListe();
 
     zeigeFeedback();
     addVocabForm.reset();
 
-
     console.log("Aktualisierte Vokabelliste:", vocabList);
 });
+

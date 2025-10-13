@@ -1,7 +1,7 @@
 
-let addButton = document.querySelector('button[type="submit"]');
-let feedbackMessage = document.getElementById("feedback-message");
-let inputFields = document.querySelectorAll('input');
+const addButton = document.querySelector('button[type="submit"]');
+const feedbackMessage = document.getElementById("feedback-message");
+const inputFields = document.querySelectorAll('input');
 
 inputFields.forEach(input => {
     input.addEventListener('input', () => {
