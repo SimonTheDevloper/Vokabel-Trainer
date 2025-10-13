@@ -5,7 +5,7 @@ export const updates = [
         "isNew": true,
         "title": "Kategorie bei der Abfrage und beim Hinzufügen ",
         "description": "Wenn man bei der Abfrage beginnen will oder beim Hinzufügen, muss man erst die zugehörige Kategorie auswählen",
-        "tags": ["Vorlesen", "Feature", "Abfrage"]
+        "tags": ["Kategorie", "Hinzufügen", "Abfrage"]
     }, {
         "version": "3.5.0",
         "versionColor": "yellow",
