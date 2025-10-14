@@ -64,8 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const kategorieInput = document.getElementById('kategorieName')
+        const kategorieName = kategorieInput.value.trim();
         const vokabeln = getVocabList();
-        vokabeln[kategorieInput] = [];
+        vokabeln[kategorieName] = [];
         speichereVokabelListe();
         /*vokabeln[kategorieInput] = [];
         speichereVokabelListe();*/
