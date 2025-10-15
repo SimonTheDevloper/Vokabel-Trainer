@@ -68,6 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const vokabeln = getVocabList();
         vokabeln[kategorieName] = [];
         speichereVokabelListe();
+        zeigeFeedback()
+
         /*vokabeln[kategorieInput] = [];
         speichereVokabelListe();*/
         console.log(vokabeln);
