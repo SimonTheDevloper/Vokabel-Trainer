@@ -64,7 +64,6 @@ export function getObjekteAusUnits(gewählteUnits) {
         )
     ).flat()
 
-
 }
 export function setAndShuffleVokabeln(vokabelnArray) {
     // 1. Tiefe Kopie erstellen (oder Sie übergeben die Kopie bereits)

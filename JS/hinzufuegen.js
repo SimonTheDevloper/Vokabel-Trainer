@@ -1,5 +1,5 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
-import { erstelleDropDown } from './test/kategorieauswahl.js';
+import { erstelleDropDown, } from './test/kategorieauswahl.js';
 import { checkJSONWörterBuchStatus, getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
 
 let kategorie;
@@ -13,9 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const addVocabForm = document.getElementById('addVocabForm')
     const addKategorieFormButton = document.getElementById('neueKategorieButton');
     const addKategorieForm = document.getElementById('neueKategorieForm');
+    const zurückButtons = document.querySelectorAll(".zurückZuAuswahlButton");
 
     addKategorieFormButton.addEventListener('click', zeigeNewKategorieForm);
     zeigeVokFormButton.addEventListener('click', zeigeNewVokForm)
+    zurückButtons.forEach(button => {
+        button.addEventListener('click', zurückZuAuswahl);
+    });
 
     function zeigeNewKategorieForm() {
         console.log('Kategorieformular anzeigen');
@@ -58,7 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Aktualisierte Vokabelliste:", vocabList);
     });
+    function zurückZuAuswahl() {
+        auswahl.classList.remove('hidden');
+        addVocabForm.classList.add('hidden');
+        addKategorieForm.classList.add('hidden');
+        console.log("w")
 
+    }
     addKategorieForm.addEventListener('submit', function (event) {
 
         event.preventDefault();
