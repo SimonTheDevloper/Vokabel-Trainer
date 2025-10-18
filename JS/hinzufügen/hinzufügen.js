@@ -1,6 +1,6 @@
 import { zeigeFeedback } from './hinzufügenUI.js'
-import { erstelleDropDown, } from './test/kategorieauswahl.js';
-import { checkJSONWörterBuchStatus, getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from './test/vokabelabfrage-Data.js';
+import { erstelleDropDown, } from '../test/kategorieauswahl.js';
+import { checkJSONWörterBuchStatus, getVocabList, kategorienAbrufen, ladeVokList, speichereVokabelListe } from '../test/vokabelabfrage-Data.js';
 
 let kategorie;
 
