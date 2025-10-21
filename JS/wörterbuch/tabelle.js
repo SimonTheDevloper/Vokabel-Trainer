@@ -14,17 +14,17 @@ kategorien.forEach(kategorie => {
     vokabeltabelle.appendChild(überschrift);
 
     const tableWrapper = document.createElement('div');
-    tableWrapper.className = 'overflow-x-auto rounded-xl';
+    tableWrapper.className = 'overflow-hidden rounded-xl border border-blue-300';
 
     const tabelle = document.createElement('table');
     tabelle.className =
-        'min-w-full border border-blue-300 bg-blue-100 rounded-xl text-slate-800';
+        'min-w-full border-collapse bg-blue-100 text-slate-800';
 
     const thead = document.createElement('thead');
     thead.className = 'bg-blue-200 text-left text-sm font-semibold text-slate-800';
     thead.innerHTML = `
     <tr>
-      <th class="px-4 py-3">Wort</th>
+      <th class="px-4 py-3 ">Wort</th>
       <th class="px-4 py-3">Fremdsprache</th>
     </tr>
   `;
