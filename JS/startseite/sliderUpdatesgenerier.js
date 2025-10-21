@@ -2,6 +2,24 @@ import { updates } from './sliderUpdatesObjekte.js'
 const sliderWrapper = document.querySelector('.slider-wrapper');
 sliderWrapper.innerHTML = ''; // Leert den Container 
 
+document.getElementById('löscheVokList').addEventListener('click', löscheVokList);
+
+function löscheVokList() {
+    console.clear();
+    console.log('🧹 Vokabelliste wird gelöscht...');
+
+    localStorage.removeItem('vokabelListe');
+
+
+    Object.keys(vocabList).forEach(key => delete vocabList[key]);
+
+    // 3. UI leeren (wenn vorhanden)
+    const vokabelContainer = document.getElementById('vokabelContainer');
+    if (vokabelContainer) vokabelContainer.innerHTML = '';
+
+    console.log('Vokabelliste erfolgreich gelöscht.');
+}
+
 updates.forEach(update => {
     const tagsHtml = update.tags.map(tag => ` <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">${tag}</span>
     `).join('');
